@@ -16,7 +16,7 @@ export default class About extends PureComponent {
           </h1>
         </header>
         <article>
-          We are the immortan!
+          Hey I'm berkeley :)
         </article>
       </div>
     );

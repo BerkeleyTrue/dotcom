@@ -3,7 +3,7 @@ const path = require('path');
 const ghpages = require('gh-pages');
 const debugFactory = require('debug');
 
-const log = debugFactory('immortan:gh-pages');
+const log = debugFactory('berkeleytrue:gh-pages');
 
 log('starting gh-pages push');
 ghpages.publish(

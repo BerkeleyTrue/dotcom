@@ -21,7 +21,7 @@ const render = require('gulp-render-react');
 const yargs = require('yargs');
 
 const webpackConfig = require('./webpack.config');
-// const debug = debugFactory('immortan:gulp');
+// const debug = debugFactory('berkeleytrue:gulp');
 const sync = browserSync.create('ar-sync-server');
 const reload = sync.reload.bind(sync);
 
