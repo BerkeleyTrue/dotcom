@@ -16,7 +16,7 @@ export default class Home extends Component {
         </header>
         <article>
           <p>
-            Hey, not much going on now. Just a log of code.
+            Hey, not much going on now. Just a lot of code.
           </p>
         </article>
       </section>
