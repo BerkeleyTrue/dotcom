@@ -11,14 +11,9 @@ export default class Home extends Component {
     return (
       <section className={ cx('home') }>
         <header>
-          <h1>What up?</h1>
+          <h1>HELLO</h1>
           <h2>It's me, Berks!</h2>
         </header>
-        <article>
-          <p>
-            Hey, not much going on now. Just a lot of code.
-          </p>
-        </article>
       </section>
     );
   }
