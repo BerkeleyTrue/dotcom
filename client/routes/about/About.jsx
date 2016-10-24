@@ -12,27 +12,34 @@ export default class About extends PureComponent {
       <div className={ cx('about') }>
         <header>
           <h1>
-            About Us
+            About Me
           </h1>
         </header>
         <article>
-          Hello, I'm berkeley Martinez, I work as a developer in
-          San Francisco.
+          <p>
+            Hello, I'm berkeley Martinez, I work as a developer in
+            San Francisco.
+          </p>
           <ul>
             <li>
-              Need to build a fullstack React.js app?
+              Do you need to build a fullstack React.js app?
             </li>
             <li>
-              Looking to move to the JAM stack?
+              Are you interested in React and the JAM stack?
             </li>
             <li>
-              Need some advice node.js advice?
+              Do you need some node.js advice?
             </li>
             <li>
               Are you a new developer and need a few tutoring sessions?
             </li>
+            <li>
+              Does you team need advanced Redux training?
+            </li>
           </ul>
-          I can help. Let's talk
+          <p>
+            I can help. Let's talk
+          </p>
         </article>
       </div>
     );

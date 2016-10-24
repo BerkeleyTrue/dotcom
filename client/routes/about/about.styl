@@ -1,7 +1,10 @@
 .about
   header
     text-align center
+  section
   article
+    +$above('xs')
+      $grid(column)
     font-size 1.2em
     line-height 1.5em
     margin-top 4%
@@ -10,3 +13,12 @@
       padding: 20px
       font-size 1em
       line-height 1.5em
+    ul
+      list-style-type none
+      padding-left 0
+    p
+    ul
+      +$above('md')
+        $cell-offset(3)
+      +$above('sm')
+        $cell(6)
