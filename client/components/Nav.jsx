@@ -3,7 +3,7 @@ import { Link } from 'react-router';
 import classnames from 'classnames/bind';
 
 import style from './nav.styl';
-import logo from '../../images/logo.gif';
+// import logo from '../../images/logo.gif';
 
 const cx = classnames.bind(style);
 const propTypes = {};
@@ -14,12 +14,7 @@ export default class Nav extends Component {
     return (
       <nav className={ cx('navbar') }>
         <div className={ cx('brand') }>
-          <Link to='/'>
-            <img
-              alt='logo'
-              src={ logo }
-            />
-          </Link>
+          <Link to='/' />
         </div>
         <ul>
           <Link to='/'>
