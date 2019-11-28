@@ -1,5 +1,5 @@
 {
-  "parserOption": {
+  "parserOptions": {
     "ecmaVersion": 2018
   },
   "env": {
@@ -21,7 +21,10 @@
     "import/extensions": [
       ".js",
       ".jsx"
-    ]
+    ],
+    "react": {
+      "version": "detect"
+    }
   },
   "globals": {
     "window": true
@@ -216,11 +219,7 @@
     "wrap-regex": 2,
 
     "max-depth": 0,
-    "max-len": [
-      2,
-      80,
-      2
-    ],
+    "max-len": 0,
     "max-params": 0,
     "max-statements": 0,
     "no-bitwise": 2,
@@ -239,7 +238,7 @@
     "react/prop-types": 2,
     "react/react-in-jsx-scope": 2,
     "react/self-closing-comp": 2,
-    "react/wrap-multilines": 2,
+    "react/jsx-wrap-multilines": 2,
     "react/jsx-closing-bracket-location": [ 2, { "selfClosing": "line-aligned", "nonEmpty": "props-aligned" } ],
 
     "import/no-unresolved": 2,
