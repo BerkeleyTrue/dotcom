@@ -1,9 +1,6 @@
 {
   "parserOption": {
-    "ecmaVersion": 6,
-    "ecmaFeatures": {
-        "jsx": true
-    }
+    "ecmaVersion": 2018
   },
   "env": {
     "es6": true,
@@ -27,12 +24,7 @@
     ]
   },
   "globals": {
-    "Promise": true,
-    "window": true,
-    "$": true,
-    "ga": true,
-    "jQuery": true,
-    "router": true
+    "window": true
   },
   "rules": {
     "comma-dangle": 2,
