@@ -30,7 +30,7 @@
     "window": true
   },
   "rules": {
-    "comma-dangle": 2,
+    "comma-dangle": ["error", "always"],
     "no-cond-assign": 2,
     "no-console": 0,
     "no-constant-condition": 2,
