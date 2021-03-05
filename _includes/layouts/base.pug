@@ -1,8 +1,18 @@
 doctype html
 head
   title BerkeleyTrue|#{title}
+  link(href="https://unpkg.com/tailwindcss@^2/dist/tailwind.min.css" rel="stylesheet")
+body.relative.overflow-hidden.v-screen.h-screen.bg-gray-200.box-border
+  div.flex.items-start.justify-between
+    aside.h-screen.shadow-lg.relative.w-80.bg-gray-400.pt-8.px-2
+      a.text-xl.mb-8(href="https://berkeleytrue.com")
+        h4 BerkeleyTrue.com
+      div.text-lg Posts:
+        ul
+          each post in collections.posts
+            a(href=post.url)
+              li #{post.data.title}
 
-body
-  h1 #{title}
-
-  main !{content}
+    section.w-full.px-6.py-8
+      h1.text-3xl.font-bold.mb-8 #{title}
+      main.w-full.h-full !{content}
