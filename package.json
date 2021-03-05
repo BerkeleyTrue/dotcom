@@ -5,10 +5,15 @@
   "version": "0.0.1",
   "author": "Berkeley Martinez <berkeley@berkeletrue.com>",
   "scripts": {
+    "build": "eleventy",
+    "watch": "eleventy --watch",
+    "serve": "eleventy --serve",
+    "start": "eleventy --serve",
+    "debug": "DEBUG=* eleventy"
   },
-  "dependencies": {
-  },
+  "dependencies": {},
   "devDependencies": {
+    "@11ty/eleventy": "^0.11.1"
   },
   "license": "MIT",
   "repository": {
