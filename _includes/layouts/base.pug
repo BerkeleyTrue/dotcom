@@ -3,13 +3,33 @@ head
   title BerkeleyTrue//#{title}
   link(href="/assets/styles.css" rel="stylesheet")
 
-body.relative.overflow-hidden.v-screen.h-screen.bg-gray-200.box-border
+mixin navbar(isOpen)
+  aside.relative.flex.flex-row.justify-between.items-center.w-screen.shadow-lg.relative.h-14.bg-gray-400.px-4.md_hidden
+    div.mx-1
+      a.text-xl(href="/")
+        h4 BerkeleyTrue
+    button.h-full.w-12.flex.items-center.justify-center(id=`${ isOpen ? 'open-button' : 'close-button' }`) #{isOpen ? '0' : 'x' }
 
-  div.flex.items-start.justify-between
-    aside.h-screen.shadow-lg.relative.w-80.bg-gray-400.pt-8.px-2
-      a.text-xl.mb-8(href="/")
-        h4 BerkeleyTrue.com
-      div.text-lg Posts:
+body.relative.overflow-hidden.w-screen.h-screen.bg-gray-200.box-border.sm_text-lg
+
+  div.h-screen.flex.flex-col.items-start.md_flex-row
+    +navbar(true)
+    #dropdown.h-screen.w-screen.absolute.bg-gray-300.hidden
+      +navbar(false)
+      #posts.h-full.w-full.mt-10
+        ul.h-full.w-full.flex.flex-col.items-center.flex-start.px-1
+
+          each post in collections.posts
+            a.mb-2.rounded-lg.bg-gray-400.h-10.w-60.max-w-full.hover_text-white.hover_bg-gray-600.transition-colors.duration-200(href=post.url)
+              li.w-full.h-full.flex.items-center
+                span.mx-4.text-lg.font-normal #{post.data.title}
+                span.flex-grow.text-right
+
+    aside.h-screen.shadow-lg.relative.w-80.bg-gray-400.pt-8.px-2.hidden.md_block
+      div.mb-8
+        a.text-xl(href="/")
+          h4 BerkeleyTrue
+      nav.text-lg Posts:
         ul
           each post in collections.posts
             a(href=post.url)
@@ -18,3 +38,18 @@ body.relative.overflow-hidden.v-screen.h-screen.bg-gray-200.box-border
     section.w-full.px-6.py-8
       h1.text-3xl.font-bold.mb-8 #{title}
       main.w-full.h-full !{content}
+
+script.
+
+  const dropdown = document.getElementById('dropdown');
+
+  const closeButton = document.getElementById('close-button');
+  const openButton = document.getElementById('open-button');
+
+  closeButton.addEventListener('click', () => {
+    dropdown.classList.add('hidden');
+  });
+  openButton.addEventListener('click', () => {
+    dropdown.classList.remove('hidden');
+  });
+
