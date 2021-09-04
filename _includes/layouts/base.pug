@@ -4,7 +4,7 @@ head
   link(href="/assets/styles.css" rel="stylesheet")
 
 mixin navbar(isOpen)
-  aside.relative.flex.flex-row.justify-between.items-center.w-screen.shadow-lg.relative.h-14.bg-gray-400.px-4.md_hidden
+  header.relative.flex.flex-row.justify-between.items-center.w-screen.shadow-lg.relative.h-14.bg-gray-400.px-4.md_hidden.py-10
     div.mx-1
       a.text-xl(href="/")
         h4 BerkeleyTrue
@@ -35,9 +35,8 @@ body.relative.overflow-hidden.w-screen.h-screen.bg-gray-200.box-border.sm_text-l
             a(href=post.url)
               li #{post.data.title}
 
-    section.w-full.px-6.py-8
-      h1.text-3xl.font-bold.mb-8 #{title}
-      main.w-full.h-full !{content}
+    div.w-full.flex-grow.px-4
+      block main
 
 script.
 

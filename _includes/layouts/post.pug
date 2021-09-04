@@ -1,0 +1,25 @@
+extends base.pug
+
+block main
+  .max-w-3xl.px-4.mx-auto.sm_px-6.xl_max-w-5xl.xl_px-0
+    article.xl_divide-y.xl_divide-gray-400
+      header.pt-6.xl_pb-6
+        .space-y-1.text-center
+          dl.space-y-10
+            dt.sr-only Publish on
+            dd.text-base.font-medium.leading-6.text-gray-500
+              time(datetime=date) #{dayjs(date).format('MMMM D, YYYY')}
+          div: h1.text-3xl.font-extrabold.leading-9.tracking-tight.text-gray-900.sm_text-4xl.sm_leading-10.md_text-5xl.md_leading-14
+            | #{title}
+      .divide-y.divide-gray-200.xl_pb-0.xl_col-span-3.xl_row-span-2
+        .pt-10.pb-8.prose.max-w-none !{content}
+      .footer
+        .text-sm.font-medium.leading-5.divide-gray-200.xl_divide-y.dark_divide-gray-700.xl_col-start-1.xl_row-start-2
+          if tags
+          .py-4.xl_py-8
+            h2.text-xs.tracking-wide.text-gray-500.uppercase
+              | Tags
+            .flex.flex-wrap
+              each tag in tags
+                a.mr-3.text-sm.font-medium.uppercase.text-primary-500.hover_text-primary-600(href=`/tags/${tag}`)
+                  | #{tag}
