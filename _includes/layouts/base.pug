@@ -29,11 +29,13 @@ body.relative.overflow-hidden.w-screen.h-screen.bg-gray-200.box-border.sm_text-l
       div.mb-8
         a.text-xl(href="/")
           h4 BerkeleyTrue
-      nav.text-lg Posts:
-        ul
+      nav.text-lg
+        ul.w-full.flex.flex-col.items-center.flex-start.px-1
           each post in collections.posts
-            a(href=post.url)
-              li #{post.data.title}
+            a.mb-2.rounded-lg.bg-gray-300.h-10.w-60.max-w-full.hover_bg-gray-600.hover_text-gray-200.transition-colors.duration-200(href=post.url)
+              li.w-full.h-full.flex.items-center
+                span.mx-4.text-lg.font-normal #{post.data.title}
+                span.flex-grow.text-right
 
     div.w-full.flex-grow.px-4
       block main
