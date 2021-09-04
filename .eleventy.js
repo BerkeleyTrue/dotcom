@@ -10,6 +10,7 @@ global.dayjs = dayjs;
  */
 module.exports = function(eleventyConfig) {
   eleventyConfig.addPassthroughCopy({'./fonts': 'assets/fonts'});
+  eleventyConfig.addPassthroughCopy({'./images': 'assets/images'});
   eleventyConfig.addPlugin(pluginTailwindCSS, {
     src: './src/css/**/*.css',
     keepFolderStructure: false,
