@@ -9,6 +9,7 @@ global.dayjs = dayjs;
  * @param {import('@11ty/eleventy/src/UserConfig')} eleventyConfig
  */
 module.exports = function(eleventyConfig) {
+  eleventyConfig.addPassthroughCopy({'./fonts': 'assets/fonts'});
   eleventyConfig.addPlugin(pluginTailwindCSS, {
     src: './src/css/**/*.css',
     keepFolderStructure: false,

@@ -13,4 +13,14 @@ module.exports = {
   },
   plugins: [],
   separator: '_',
+  theme: {
+      fontFamily: {
+       'sans': ['Fira\ Code', 'ui-sans-serif', 'system-ui'],
+
+       'serif': ['Fira\ Code', 'ui-serif', 'Georgia'],
+
+       'mono': ['Fira\ Code', 'ui-monospace', 'SFMono-Regular'],
+      }
+
+}
 }
