@@ -14,7 +14,7 @@ body.relative.overflow-hidden.w-screen.h-screen.bg-gray-200.box-border.sm_text-l
 
   div.h-screen.flex.flex-col.items-start.md_flex-row
     +navbar(true)
-    #dropdown.h-screen.w-screen.absolute.bg-gray-300.hidden
+    #dropdown.h-screen.w-screen.absolute.bg-gray-300.transform.ease-in-out.duration-300.-translate-y-full.overflow-hidden.opacity-0
       +navbar(false)
       #posts.h-full.w-full.mt-10
         ul.h-full.w-full.flex.flex-col.items-center.flex-start.px-1
@@ -47,9 +47,11 @@ script.
   const openButton = document.getElementById('open-button');
 
   closeButton.addEventListener('click', () => {
-    dropdown.classList.add('hidden');
+    dropdown.classList.replace('translate-y-0', '-translate-y-full');
+    dropdown.classList.replace('opacity-1', 'opacity-0');
   });
   openButton.addEventListener('click', () => {
-    dropdown.classList.remove('hidden');
+    dropdown.classList.replace('-translate-y-full', 'translate-y-0');
+    dropdown.classList.replace('opacity-0', 'opacity-1');
   });
 
