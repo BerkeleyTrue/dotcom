@@ -1,0 +1,11 @@
+---
+permalink: sitemap.xml
+dynamicPermalink: false
+eleventyExcludeFromCollections: true
+layout: null
+---
+
+doctype xml
+urlset(xmlns="http://www.sitemaps.org/schemas/sitemap/0.9")
+  each page in collections.all
+    url: loc #{site.url}#{page.url}
