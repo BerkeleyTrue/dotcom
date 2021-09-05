@@ -14,7 +14,7 @@ block main
               .space-y-2.xl_grid.xl_grid-cols-4.xl_space-y-0.xl_items-baseline
                 dl
                   dt.sr-only Publish on
-                  dd.text-base.font-medium.leading-6.text-gray-500.dark_text-gray-400
+                  dd.text-base.font-medium.leading-6.text-indigo-400
                     time(datetime=post.date) #{dayjs(post.date).format('MMMM D, YYYY')}
                 .space-y-5.xl_col-span-3
                   .space-y-6
@@ -27,6 +27,6 @@ block main
                               a.mr-3.text-sm.font-medium.uppercase.text-primary-500.hover_text-primary-600(href=`/tags/${tag}`)
                                 | #{tag}
 
-                    .prose.text-gray-500.max-w-none #{post.data.summary}
+                    .prose.text-indigo-500.max-w-none #{post.data.summary}
                   a.text-base.font-medium.leading-6.text-primary-500.hover_text-primary-600(aria-label=`Read "${post.data.title}"` href=post.url)
                     | Read More →
