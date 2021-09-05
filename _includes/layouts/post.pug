@@ -10,7 +10,7 @@ block main
         .space-y-1.text-center
           dl.space-y-10
             dt.sr-only Publish on
-            dd.text-base.font-medium.leading-6.text-gray-500
+            dd.text-base.font-medium.leading-6.text-indigo-700
               time(datetime=date) #{dayjs(date).format('MMMM D, YYYY')}
           div: h1.text-3xl.font-extrabold.leading-9.tracking-tight.text-gray-900.sm_text-4xl.sm_leading-10.md_text-5xl.md_leading-14
             | #{title}
@@ -20,7 +20,7 @@ block main
         .text-sm.font-medium.leading-5.divide-gray-200.xl_divide-y.dark_divide-gray-700.xl_col-start-1.xl_row-start-2
           if tags
           .py-4.xl_py-8
-            h2.text-xs.tracking-wide.text-gray-500.uppercase
+            h2.text-xs.tracking-wide.text-indigo-700.uppercase
               | Tags
             .flex.flex-wrap
               each tag in tags
