@@ -9,8 +9,7 @@ global.dayjs = dayjs;
  * @param {import('@11ty/eleventy/src/UserConfig')} eleventyConfig
  */
 module.exports = function (eleventyConfig) {
-  eleventyConfig.addPassthroughCopy({ './fonts': 'assets/fonts' });
-  eleventyConfig.addPassthroughCopy({ './images': 'assets/images' });
+  eleventyConfig.addPassthroughCopy('./assets');
 
   eleventyConfig.addPlugin(pluginTailwindCSS, {
     src: './src/css/**/*.css',
@@ -25,4 +24,12 @@ module.exports = function (eleventyConfig) {
     notify: true,
     ui: { port: 3001 },
   });
+
+  return {
+    dir: {
+      input: './src',
+      includes: 'includes',
+      data: 'data',
+    },
+  };
 };

@@ -1,8 +1,7 @@
 module.exports = {
   mode: 'jit',
   purge: [
-    '_includes/**/*.pug',
-    'index.pug',
+    'src/**/*.pug',
   ],
   darkMode: true, // or 'media' or 'class'
   theme: {
