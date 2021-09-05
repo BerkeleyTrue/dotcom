@@ -1,5 +1,8 @@
 extends base.pug
 
+block head
+  meta(name='description' content=`Berkeley talks: ${summary}`)
+
 block main
   .max-w-3xl.px-4.mx-auto.sm_px-6.xl_max-w-5xl.xl_px-0
     article.xl_divide-y.xl_divide-gray-400
