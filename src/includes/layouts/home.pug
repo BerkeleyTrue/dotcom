@@ -22,9 +22,9 @@ block main
                   .space-y-6
                     div
                       a.h-12.text-2xl.font-bold.leading-8.tracking-tight.text-gray-900(href=post.url) #{post.data.title}
-                      if post.data.tags
+                      if _.size(filterTags(post.data.tags))
                         .flex.flex-wrap
-                          each tag in post.data.tags
+                          each tag in filterTags(post.data.tags)
                             a.h-12.mr-3.text-sm.font-medium.uppercase.text-primary-500.hover_text-primary-600(href=`/tags/${tag}`)
                               | #{tag}
 

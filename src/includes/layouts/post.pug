@@ -18,11 +18,11 @@ block main
         .pt-10.pb-8.prose.max-w-none !{content}
       .footer
         .text-sm.font-medium.leading-5.divide-gray-200.xl_divide-y.dark_divide-gray-700.xl_col-start-1.xl_row-start-2
-          if tags
-          .py-4.xl_py-8
-            h2.text-xs.tracking-wide.text-indigo-700.uppercase
-              | Tags
-            .flex.flex-wrap
-              each tag in tags
-                a.mr-3.text-sm.font-medium.uppercase.text-primary-500.hover_text-primary-600(href=`/tags/${tag}`)
-                  | #{tag}
+          if _.size(filterTags(tags))
+            .py-4.xl_py-8
+              h2.text-xs.tracking-wide.text-indigo-700.uppercase
+                | Tags
+              .flex.flex-wrap
+                each tag in filterTags(tags)
+                  a.mr-3.text-sm.font-medium.uppercase.text-primary-500.hover_text-primary-600(href=`/tags/${tag}`)
+                    | #{tag}

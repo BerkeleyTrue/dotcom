@@ -1,12 +1,17 @@
 const dayjs = require('dayjs');
 const pluginTailwindCSS = require('eleventy-plugin-tailwindcss');
+const _ = require('lodash/fp');
 
 const markdownIt = require('markdown-it');
 const markdownItClass = require('@toycode/markdown-it-class');
 
 // expose to pug
 global.dayjs = dayjs;
-
+global.filterTags = _.flow(
+  _.castArray,
+  _.remove(_.includes(_, ['all', 'nav', 'post', 'posts'])),
+);
+global._ = _;
 
 /**
  * Eleventy config
@@ -25,7 +30,13 @@ module.exports = function (eleventyConfig) {
       'md_text-6xl',
       'md_leading-14',
     ],
-    h2: ['tracking-wide', 'text-indigo-700', 'uppercase', 'text-lg', 'leading-6'],
+    h2: [
+      'tracking-wide',
+      'text-indigo-700',
+      'uppercase',
+      'text-lg',
+      'leading-6',
+    ],
     a: ['text-blue-300', 'hover:underline'],
   };
 
