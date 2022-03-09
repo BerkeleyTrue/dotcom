@@ -1,9 +1,11 @@
 doctype html
 html(lang='en-US'): head
+  meta(name="viewport" content="width=device-width, initial-scale=1")
   title BerkeleyTrue//#{title}
   link(href="/assets/styles.css" rel="stylesheet")
-  link(rel='shortcut icon', href='/assets/images/favicon.ico')
-  meta(name="viewport" content="width=device-width, initial-scale=1")
+
+  link(href='/assets/images/favicon.ico' rel='shortcut icon')
+  link(href="https://unpkg.com/dracula-prism/dist/css/dracula-prism.css" rel="stylesheet")
   block head
 
 mixin letterhead()

@@ -1,6 +1,7 @@
-const dayjs = require('dayjs');
-const pluginTailwindCSS = require('eleventy-plugin-tailwindcss');
 const _ = require('lodash/fp');
+const dayjs = require('dayjs');
+const syntaxHighlight = require("@11ty/eleventy-plugin-syntaxhighlight");
+const pluginTailwindCSS = require('eleventy-plugin-tailwindcss');
 
 const markdownIt = require('markdown-it');
 const markdownItClass = require('@toycode/markdown-it-class');
@@ -53,6 +54,8 @@ module.exports = function (eleventyConfig) {
     watchEleventyWatchTargets: true,
     dest: 'assets',
   });
+
+  eleventyConfig.addPlugin(syntaxHighlight);
 
   eleventyConfig.setBrowserSyncConfig({
     port: 3000,
