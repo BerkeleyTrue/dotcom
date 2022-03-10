@@ -24,7 +24,7 @@
     "tailwindcss": "^2.2.9"
   },
   "devDependencies": {
-    "@11ty/eleventy": "^0.12.1"
+    "@11ty/eleventy": "^1.0.0"
   },
   "license": "MIT",
   "repository": {
