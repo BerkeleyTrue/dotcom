@@ -2,10 +2,10 @@ doctype html
 html(lang='en-US'): head
   meta(name="viewport" content="width=device-width, initial-scale=1")
   title BerkeleyTrue//#{title}
-  link(href="/assets/styles.css" rel="stylesheet")
 
-  link(href='/assets/images/favicon.ico' rel='shortcut icon')
   link(href="https://unpkg.com/dracula-prism/dist/css/dracula-prism.css" rel="stylesheet")
+  link(href='/assets/images/favicon.ico' rel='shortcut icon')
+  link(href="/assets/styles.css" rel="stylesheet")
   block head
 
 mixin letterhead()
@@ -93,8 +93,9 @@ body.relative.overflow-hidden.w-screen.h-screen.bg-gray-100.box-border.sm_text-l
           +linkedin()
         a.flex.justify-center.items-center.text-sm.lg_text-lg.w-full.h-12(href='https://github.com/berkeleytrue/dotcom' target='_blank' aria-label='A link to the open source repository for this site' rel='noreferrer')
           This site is open source >=>
-    div.w-full.flex-grow.px-4.max-w-screen-xl.mx-auto
-      block main
+    .w-full.flex-grow.px-4.max-h-screen.overflow-x-hidden.overflow-y-auto
+      .mx-auto.max-w-screen-xl.w-full
+        block main
 
 script.
 
@@ -111,4 +112,3 @@ script.
     dropdown.classList.replace('-translate-y-full', 'translate-y-0');
     dropdown.classList.replace('opacity-0', 'opacity-1');
   });
-

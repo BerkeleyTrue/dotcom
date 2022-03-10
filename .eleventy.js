@@ -1,10 +1,10 @@
 const _ = require('lodash/fp');
 const dayjs = require('dayjs');
-const syntaxHighlight = require("@11ty/eleventy-plugin-syntaxhighlight");
 const pluginTailwindCSS = require('eleventy-plugin-tailwindcss');
 
 const markdownIt = require('markdown-it');
 const markdownItClass = require('@toycode/markdown-it-class');
+const markdownItPrism = require('markdown-it-prism');
 
 // expose to pug
 global.dayjs = dayjs;
@@ -35,13 +35,23 @@ module.exports = function (eleventyConfig) {
       'tracking-wide',
       'text-indigo-700',
       'uppercase',
+      'my-4',
       'text-lg',
+      'leading-6',
+    ],
+    h3: [
+      'text-xl',
+      'font-bold',
+      'tracking-wide',
+      'my-4',
+      'text-indigo-700',
       'leading-6',
     ],
     a: ['text-blue-300', 'hover:underline'],
   };
 
   const md = markdownIt({ linkify: true, html: true });
+  md.use(markdownItPrism);
   md.use(markdownItClass, mapping);
 
   eleventyConfig.addPassthroughCopy('./assets');
@@ -54,8 +64,6 @@ module.exports = function (eleventyConfig) {
     watchEleventyWatchTargets: true,
     dest: 'assets',
   });
-
-  eleventyConfig.addPlugin(syntaxHighlight);
 
   eleventyConfig.setBrowserSyncConfig({
     port: 3000,

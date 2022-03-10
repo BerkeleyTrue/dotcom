@@ -50,3 +50,10 @@
 @tailwind components;
 @tailwind utilities;
 @tailwind variants;
+
+code[class*="language-"],
+pre[class*="language-"]
+{
+  font-family: "Fira Code", Monaco, "Andale Mono", "Ubuntu Mono",
+    monospace;
+}

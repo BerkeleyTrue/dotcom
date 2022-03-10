@@ -2,6 +2,7 @@ module.exports = {
   mode: 'jit',
   purge: [
     'src/**/*.pug',
+    '.eleventy.js',
   ],
   darkMode: true, // or 'media' or 'class'
   theme: {
