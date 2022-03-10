@@ -10,6 +10,7 @@
     "eleventy:build": "eleventy",
     "eleventy:watch": "eleventy --serve",
     "start": "concurrently 'npm:eleventy:watch' 'npm:tailwind:watch'",
+    "build": "concurrently 'npm:eleventy:build' 'npm:tailwind:build'",
     "debug": "DEBUG=* eleventy"
   },
   "dependencies": {
