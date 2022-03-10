@@ -15,7 +15,7 @@ block main
           div: h1.text-3xl.font-extrabold.leading-9.tracking-tight.text-gray-900.sm_text-4xl.sm_leading-10.md_text-5xl.md_leading-14
             | #{title}
       .divide-y.divide-gray-200.xl_pb-0.xl_col-span-3.xl_row-span-2
-        .pt-10.pb-8.prose.max-w-none !{content}
+        article.pt-10.pb-8.max-w-none.prose !{content}
       .footer
         .text-sm.font-medium.leading-5.divide-gray-200.xl_divide-y.dark_divide-gray-700.xl_col-start-1.xl_row-start-2
           if _.size(filterTags(tags))

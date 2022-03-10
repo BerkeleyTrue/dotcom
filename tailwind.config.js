@@ -1,9 +1,5 @@
 module.exports = {
-  mode: 'jit',
-  purge: [
-    'src/**/*.pug',
-    '.eleventy.js',
-  ],
+  content: ['src/**/*.pug', 'src/**/*.md', '.eleventy.js'],
   darkMode: true, // or 'media' or 'class'
   theme: {
     extend: {},
@@ -11,16 +7,15 @@ module.exports = {
   variants: {
     extend: {},
   },
-  plugins: [],
+  plugins: [require('@tailwindcss/typography')],
   separator: '_',
   theme: {
-      fontFamily: {
-       'sans': ['Fira\ Code', 'ui-sans-serif', 'system-ui'],
+    fontFamily: {
+      sans: ['Fira Code', 'ui-sans-serif', 'system-ui'],
 
-       'serif': ['Fira\ Code', 'ui-serif', 'Georgia'],
+      serif: ['Fira Code', 'ui-serif', 'Georgia'],
 
-       'mono': ['Fira\ Code', 'ui-monospace', 'SFMono-Regular'],
-      }
-
-}
-}
+      mono: ['Fira Code', 'ui-monospace', 'SFMono-Regular'],
+    },
+  },
+};

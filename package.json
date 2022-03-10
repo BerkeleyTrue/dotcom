@@ -5,26 +5,28 @@
   "version": "0.0.1",
   "author": "Berkeley Martinez <berkeley@berkeletrue.com>",
   "scripts": {
-    "build": "eleventy",
-    "watch": "eleventy --watch",
-    "serve": "eleventy --serve",
-    "start": "eleventy --serve",
+    "tailwind:build": "tailwindcss -i ./src/css/styles.css -o ./_site/assets/styles.css",
+    "tailwind:watch": "npm run tailwind:build -- --watch",
+    "eleventy:build": "eleventy",
+    "eleventy:watch": "eleventy --serve",
+    "start": "concurrently 'npm:eleventy:watch' 'npm:tailwind:watch'",
     "debug": "DEBUG=* eleventy"
   },
   "dependencies": {
+    "@tailwindcss/typography": "^0.5.2",
     "@toycode/markdown-it-class": "^1.2.4",
     "autoprefixer": "^10.3.4",
     "dayjs": "^1.10.6",
-    "eleventy-plugin-tailwindcss": "^0.3.0",
     "lodash": "^4.17.21",
     "markdown-it": "^12.3.2",
     "markdown-it-prism": "^2.2.3",
     "postcss-cli": "^8.3.1",
     "prettier": "^2.3.2",
-    "tailwindcss": "^2.2.9"
+    "tailwindcss": "^3.0.23"
   },
   "devDependencies": {
-    "@11ty/eleventy": "^1.0.0"
+    "@11ty/eleventy": "^1.0.0",
+    "concurrently": "^7.0.0"
   },
   "license": "MIT",
   "repository": {
