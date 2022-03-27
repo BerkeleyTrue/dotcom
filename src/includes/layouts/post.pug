@@ -16,7 +16,11 @@ block main
             | #{title}
       .divide-y.divide-gray-200.xl_pb-0.xl_col-span-3.xl_row-span-2
         article.pt-10.pb-8.max-w-none.prose !{content}
-      .footer
+        p.text-sm.font-medium.leading-5.my-6.py-6.pl-8.whitespace-pre
+          | Happy Coding,
+          |
+          | #{"=<<Berks>>="}
+      footer.footer.mb-12
         .text-sm.font-medium.leading-5.divide-gray-200.xl_divide-y.dark_divide-gray-700.xl_col-start-1.xl_row-start-2
           if _.size(filterTags(tags))
             .py-4.xl_py-8
