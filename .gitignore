@@ -68,5 +68,7 @@ yarn-error.log
 # Yarn Integrity file
 .yarn-integrity
 
-# Eleventy
-_site/
+# nextjs
+next-env.d.ts
+.next
+_site
