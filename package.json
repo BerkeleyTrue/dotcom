@@ -5,13 +5,9 @@
   "version": "0.0.1",
   "author": "Berkeley Martinez <berkeley@berkeletrue.com>",
   "scripts": {
-    "tailwind:build": "tailwindcss -i ./src/css/styles.css -o ./_site/assets/styles.css",
-    "tailwind:watch": "npm run tailwind:build -- --watch",
-    "eleventy:build": "eleventy",
-    "eleventy:watch": "eleventy --serve",
-    "start": "concurrently 'npm:eleventy:watch' 'npm:tailwind:watch'",
-    "build": "concurrently 'npm:eleventy:build' 'npm:tailwind:build'",
-    "debug": "DEBUG=* eleventy"
+    "start": "next",
+    "start:prod": "next start",
+    "build": "next build"
   },
   "dependencies": {
     "@chakra-ui/icons": "^1.1.7",
@@ -24,8 +20,11 @@
     "react-dom": "^17.0.2"
   },
   "devDependencies": {
-    "@11ty/eleventy": "^1.0.0",
-    "concurrently": "^7.0.0"
+    "@types/node": "^17.0.25",
+    "@types/react": "^17.0.44",
+    "@types/react-dom": "^18.0.1",
+    "concurrently": "^7.0.0",
+    "typescript": "^4.6.3"
   },
   "license": "MIT",
   "repository": {
