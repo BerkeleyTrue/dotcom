@@ -6,7 +6,9 @@ interface Props {
 export const Head = ({ subTitle }: Props) => (
   <NextHead>
     <title>
+
       berks//{subTitle}
     </title>
+      <link href='/images/favicon.ico' rel='shortcut icon' />
   </NextHead>
 )
