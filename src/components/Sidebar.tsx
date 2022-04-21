@@ -22,6 +22,9 @@ interface ContentProps {
   onClick: MouseEventHandler;
 }
 
+const sidebarStyles = {
+  bg: 'darker.800',
+};
 const SidebarContent = ({ onClick }: ContentProps) => (
   <VStack>
     <Button onClick={onClick} w="100%">
@@ -38,15 +41,16 @@ const SidebarContent = ({ onClick }: ContentProps) => (
 
 const Sidebar = ({ isOpen, variant, onClose }: Props) => {
   return variant === 'sidebar' ? (
-    <Box
-      p={5}
-      w="200px"
-      h="100%"
-    >
+    <Box p={5} w="200px" h="100%" {...sidebarStyles}>
       <SidebarContent onClick={onClose as MouseEventHandler} />
     </Box>
   ) : (
-    <Drawer isOpen={isOpen} placement="left" onClose={onClose}>
+    <Drawer
+      isOpen={isOpen}
+      placement="left"
+      onClose={onClose}
+      {...sidebarStyles}
+    >
       <DrawerOverlay>
         <DrawerContent>
           <DrawerCloseButton />
