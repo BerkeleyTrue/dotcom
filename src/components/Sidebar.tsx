@@ -11,6 +11,7 @@ import {
   Text,
 } from '@chakra-ui/react';
 import { MouseEventHandler } from 'react';
+import { Avatar } from './Avatar';
 
 export type Variants = 'drawer' | 'sidebar';
 
@@ -23,6 +24,7 @@ interface ContentProps {
 }
 const SidebarContent = ({ onClick }: ContentProps) => (
   <VStack>
+    <Avatar />
     <Text fontSize={{ base: 'medium' }} mb="4">
       (= Berkeley true)
     </Text>
