@@ -16,7 +16,7 @@ export const colors = {
     '700': '#454a64',
     '800': '#373a4d',
     '900': '#282a36',
-    DEFAULT: '#282a36',
+    main: '#282a36',
   },
   dark: {
     '50': '#f7f7fb',
@@ -29,7 +29,7 @@ export const colors = {
     '700': '#606689',
     '800': '#525771',
     '900': '#44475a',
-    DEFAULT: '#44475a',
+    main: '#44475a',
   },
   light: {
     '50': '#f8f8f2',
@@ -42,7 +42,7 @@ export const colors = {
     '700': '#85855d',
     '800': '#6d6d4f',
     '900': '#565641',
-    DEFAULT: '#f8f8f2',
+    main: '#f8f8f2',
   },
   blue: {
     '50': '#f0f2f8',
@@ -55,7 +55,7 @@ export const colors = {
     '700': '#54628c',
     '800': '#485273',
     '900': '#3b425a',
-    DEFAULT: '#6272a4',
+    main: '#6272a4',
   },
   cyan: {
     '50': '#fafeff',
@@ -68,7 +68,7 @@ export const colors = {
     '700': '#0dbfe5',
     '800': '#0ca0bf',
     '900': '#0c819a',
-    DEFAULT: '#8be9fd',
+    main: '#8be9fd',
   },
   green: {
     '50': '#e2ffe9',
@@ -81,7 +81,7 @@ export const colors = {
     '700': '#0ccd3d',
     '800': '#0ba833',
     '900': '#0a8329',
-    DEFAULT: '#50fa7b',
+    main: '#50fa7b',
   },
   orange: {
     '50': '#ffefdd',
@@ -94,7 +94,7 @@ export const colors = {
     '700': '#cd6d08',
     '800': '#a75a08',
     '900': '#824707',
-    DEFAULT: '#ffb86c',
+    main: '#ffb86c',
   },
   pink: {
     '50': '#ffeaf6',
@@ -107,7 +107,7 @@ export const colors = {
     '700': '#d90880',
     '800': '#b3086b',
     '900': '#8e0855',
-    DEFAULT: '#ff79c6',
+    main: '#ff79c6',
   },
   purple: {
     '50': '#fefeff',
@@ -120,7 +120,7 @@ export const colors = {
     '700': '#6916e0',
     '800': '#5914bb',
     '900': '#491298',
-    DEFAULT: '#bd93f9',
+    main: '#bd93f9',
   },
   red: {
     '50': '#ffecec',
@@ -133,7 +133,7 @@ export const colors = {
     '700': '#dd0606',
     '800': '#b70707',
     '900': '#910707',
-    DEFAULT: '#ff5555',
+    main: '#ff5555',
   },
   yellow: {
     '50': '#fefff8',
@@ -146,7 +146,7 @@ export const colors = {
     '700': '#ccdd12',
     '800': '#abb811',
     '900': '#899410',
-    DEFAULT: '#f1fa8c',
+    main: '#f1fa8c',
   },
   nosferatu: {
     '50': '#cdd0e4',
@@ -159,7 +159,7 @@ export const colors = {
     '700': '#454a64',
     '800': '#373a4d',
     '900': '#282a36',
-    DEFAULT: '#282a36',
+    main: '#282a36',
   },
   aro: {
     '50': '#f7f7fb',
@@ -172,7 +172,7 @@ export const colors = {
     '700': '#606689',
     '800': '#525771',
     '900': '#44475a',
-    DEFAULT: '#44475a',
+    main: '#44475a',
   },
   cullen: {
     '50': '#f8f8f2',
@@ -185,7 +185,7 @@ export const colors = {
     '700': '#85855d',
     '800': '#6d6d4f',
     '900': '#565641',
-    DEFAULT: '#f8f8f2',
+    main: '#f8f8f2',
   },
   vonCount: {
     '50': '#f0f2f8',
@@ -198,7 +198,7 @@ export const colors = {
     '700': '#54628c',
     '800': '#485273',
     '900': '#3b425a',
-    DEFAULT: '#6272a4',
+    main: '#6272a4',
   },
   vanHelsing: {
     '50': '#fafeff',
@@ -211,7 +211,7 @@ export const colors = {
     '700': '#0dbfe5',
     '800': '#0ca0bf',
     '900': '#0c819a',
-    DEFAULT: '#8be9fd',
+    main: '#8be9fd',
   },
   blade: {
     '50': '#e2ffe9',
@@ -224,7 +224,7 @@ export const colors = {
     '700': '#0ccd3d',
     '800': '#0ba833',
     '900': '#0a8329',
-    DEFAULT: '#50fa7b',
+    main: '#50fa7b',
   },
   morbius: {
     '50': '#ffefdd',
@@ -237,7 +237,7 @@ export const colors = {
     '700': '#cd6d08',
     '800': '#a75a08',
     '900': '#824707',
-    DEFAULT: '#ffb86c',
+    main: '#ffb86c',
   },
   buffy: {
     '50': '#ffeaf6',
@@ -250,7 +250,7 @@ export const colors = {
     '700': '#d90880',
     '800': '#b3086b',
     '900': '#8e0855',
-    DEFAULT: '#ff79c6',
+    main: '#ff79c6',
   },
   dracula: {
     '50': '#fefeff',
@@ -263,7 +263,7 @@ export const colors = {
     '700': '#6916e0',
     '800': '#5914bb',
     '900': '#491298',
-    DEFAULT: '#bd93f9',
+    main: '#bd93f9',
   },
   marcelin: {
     '50': '#ffecec',
@@ -276,7 +276,7 @@ export const colors = {
     '700': '#dd0606',
     '800': '#b70707',
     '900': '#910707',
-    DEFAULT: '#ff5555',
+    main: '#ff5555',
   },
   lincoln: {
     '50': '#fefff8',
@@ -289,6 +289,6 @@ export const colors = {
     '700': '#ccdd12',
     '800': '#abb811',
     '900': '#899410',
-    DEFAULT: '#f1fa8c',
+    main: '#f1fa8c',
   },
 };

@@ -1,6 +1,7 @@
 import { ReactNode } from 'react';
 import {
   Box,
+  Flex,
   HStack,
   Stack,
   useBoolean,
@@ -9,8 +10,9 @@ import {
 } from '@chakra-ui/react';
 
 import Sidebar, { Variants } from './Sidebar';
+import { Header } from './Header';
 
-const headerSize = 16;
+const headerSize = 12;
 const smVariant = { navigation: 'drawer', showButton: true };
 const mdVariant = { navigation: 'sidebar', showButton: false };
 
@@ -22,22 +24,22 @@ export function Layout({ children }: Props) {
   const variants = useBreakpointValue({ base: smVariant, md: mdVariant });
 
   return (
-    <HStack h="100vh" w="100vw">
+    <Flex h="100vh" w="100vw">
       <Sidebar
         variant={variants.navigation as Variants}
         isOpen={isSidebarOpen}
         onClose={setSidebar.toggle}
       />
       <Stack flexGrow={1} h="100%">
-        <Box h={headerSize}>
-          Header
-          {/* <Header */}
-          {/*   showSidebarButton={variants?.navigationButton} */}
-          {/*   onShowSidebar={toggleSidebar} */}
-          {/* /> */}
-        </Box>
-        <VStack h={ `calc(100% - var(--chakra-sizes-${headerSize}))` }>{children}</VStack>
+        <Header
+          h={headerSize}
+          showButton={variants.showButton}
+          onButtonPress={setSidebar.toggle}
+        />
+        <VStack h={`calc(100% - var(--chakra-sizes-${headerSize}))`}>
+          {children}
+        </VStack>
       </Stack>
-    </HStack>
+    </Flex>
   );
 }

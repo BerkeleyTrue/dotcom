@@ -1,3 +1,4 @@
+import NextLink from 'next/link';
 import {
   Box,
   Button,
@@ -8,40 +9,60 @@ import {
   DrawerBody,
   DrawerContent,
   VStack,
+  Text,
 } from '@chakra-ui/react';
 import { MouseEventHandler } from 'react';
 
 export type Variants = 'drawer' | 'sidebar';
+
+const sidebarStyles = {
+  bg: 'darker.800',
+};
+const Header = () => (
+  <Text fontSize={{ base: 'medium' }} mb="4">
+    (Berkeley true)
+  </Text>
+);
+
+interface ContentProps {
+  onClick: MouseEventHandler;
+}
+const SidebarContent = ({ onClick }: ContentProps) => (
+  <VStack>
+    <Text fontSize={{ base: 'medium' }} mb="4">
+      (= Berkeley true)
+    </Text>
+    <NextLink href="/">
+      <Button onClick={onClick} w="100%">
+        { '(->' } Home)
+      </Button>
+    </NextLink>
+    <NextLink href="/catagories">
+      <Button onClick={onClick} w="100%">
+        { '(->>' } Catagories)
+      </Button>
+    </NextLink>
+    <NextLink href="/about">
+      <Button onClick={onClick} w="100%" textAlign='left'>
+        { '(as->' } About)
+      </Button>
+    </NextLink>
+  </VStack>
+);
+
 interface Props {
   onClose: () => void;
   isOpen: boolean;
   variant: Variants;
 }
-
-interface ContentProps {
-  onClick: MouseEventHandler;
-}
-
-const sidebarStyles = {
-  bg: 'darker.800',
-};
-const SidebarContent = ({ onClick }: ContentProps) => (
-  <VStack>
-    <Button onClick={onClick} w="100%">
-      Home
-    </Button>
-    <Button onClick={onClick} w="100%">
-      About
-    </Button>
-    <Button onClick={onClick} w="100%">
-      Contact
-    </Button>
-  </VStack>
-);
-
 const Sidebar = ({ isOpen, variant, onClose }: Props) => {
   return variant === 'sidebar' ? (
-    <Box p={5} w="200px" h="100%" {...sidebarStyles}>
+    <Box
+      p={5}
+      w={{ base: '48', lg: '64', xl: '80', '2xl': '96' }}
+      h="100%"
+      {...sidebarStyles}
+    >
       <SidebarContent onClick={onClose as MouseEventHandler} />
     </Box>
   ) : (
@@ -54,8 +75,7 @@ const Sidebar = ({ isOpen, variant, onClose }: Props) => {
       <DrawerOverlay>
         <DrawerContent>
           <DrawerCloseButton />
-          <DrawerHeader>Chakra-UI</DrawerHeader>
-          <DrawerBody>
+          <DrawerBody pt="12">
             <SidebarContent onClick={onClose} />
           </DrawerBody>
         </DrawerContent>
