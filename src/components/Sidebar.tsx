@@ -36,6 +36,11 @@ const SidebarContent = ({ onClick }: ContentProps) => (
         { '(->>' } Catagories)
       </Button>
     </NextLink>
+    <NextLink href="/tags" passHref>
+      <Button onClick={onClick} w="100%">
+        { '(some->' } Tags)
+      </Button>
+    </NextLink>
     <NextLink href="/about" passHref>
       <Button onClick={onClick} w="100%" textAlign='left'>
         { '(as->' } About)
