@@ -1,24 +1,29 @@
-import { extendTheme, ThemeConfig } from "@chakra-ui/react";
-import { createBreakpoints } from "@chakra-ui/theme-tools";
+import { extendTheme, ThemeConfig } from '@chakra-ui/react';
+import { createBreakpoints } from '@chakra-ui/theme-tools';
 
-const fonts = { mono: `'Menlo', monospace` };
+const fonts = {
+  mono: `'Fira Code', ui-monospace, SFMono-Regular`,
+  sans: `'Fira code', ui-sans-serif, system-ui`,
+  serif: `'Fira Code', ui-serfi, Georgia`,
+  body: `'Fira Code', ui-serif, SFMono-Regular`,
+};
 
 const breakpoints = createBreakpoints({
-  sm: "30em",
-  md: "48em",
-  lg: "62em",
-  xl: "80em",
-  "2xl": "96em",
+  sm: '30em',
+  md: '48em',
+  lg: '62em',
+  xl: '80em',
+  '2xl': '96em',
 });
 
 const theme: ThemeConfig = extendTheme({
   colors: {
-    black: "#16161D",
+    black: '#16161D',
   },
   fonts,
   breakpoints,
   config: {
-    initialColorMode: "dark",
+    initialColorMode: 'dark',
     useSystemColorMode: false,
   },
 });
