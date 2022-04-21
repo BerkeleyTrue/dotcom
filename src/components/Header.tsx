@@ -1,6 +1,6 @@
 import NextLink from 'next/link';
 import { HamburgerIcon } from '@chakra-ui/icons';
-import { Box, Button, Container, Flex, Link } from '@chakra-ui/react';
+import { Box, Button, Container, Flex } from '@chakra-ui/react';
 
 interface Props {
   showButton: boolean;
@@ -14,7 +14,7 @@ export const Header = ({ showButton, onButtonPress, h }: Props) => {
       <Container px={{ base: '4', md: '1' }} h="100%">
         <Flex h="100%" alignItems="center">
           {showButton && <HamburgerIcon onClick={onButtonPress} mr="4" />}
-          <NextLink href="/">
+          <NextLink href="/" passHref>
             <Button h="100%">Home</Button>
           </NextLink>
         </Flex>

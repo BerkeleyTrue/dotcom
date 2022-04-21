@@ -5,7 +5,6 @@ import {
   Drawer,
   DrawerOverlay,
   DrawerCloseButton,
-  DrawerHeader,
   DrawerBody,
   DrawerContent,
   VStack,
@@ -18,11 +17,6 @@ export type Variants = 'drawer' | 'sidebar';
 const sidebarStyles = {
   bg: 'darker.800',
 };
-const Header = () => (
-  <Text fontSize={{ base: 'medium' }} mb="4">
-    (Berkeley true)
-  </Text>
-);
 
 interface ContentProps {
   onClick: MouseEventHandler;
@@ -32,17 +26,17 @@ const SidebarContent = ({ onClick }: ContentProps) => (
     <Text fontSize={{ base: 'medium' }} mb="4">
       (= Berkeley true)
     </Text>
-    <NextLink href="/">
+    <NextLink href="/" passHref>
       <Button onClick={onClick} w="100%">
         { '(->' } Home)
       </Button>
     </NextLink>
-    <NextLink href="/catagories">
+    <NextLink href="/catagories" passHref>
       <Button onClick={onClick} w="100%">
         { '(->>' } Catagories)
       </Button>
     </NextLink>
-    <NextLink href="/about">
+    <NextLink href="/about" passHref>
       <Button onClick={onClick} w="100%" textAlign='left'>
         { '(as->' } About)
       </Button>
