@@ -15,7 +15,9 @@ export const Header = ({ showButton, onButtonPress, h }: Props) => {
         <Flex h="100%" alignItems="center">
           {showButton && <HamburgerIcon onClick={onButtonPress} mr="4" />}
           <NextLink href="/" passHref>
-            <Button h="100%">Home</Button>
+            <Button h="100%" bg="darker.700">
+              Home
+            </Button>
           </NextLink>
         </Flex>
       </Container>

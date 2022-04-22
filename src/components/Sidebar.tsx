@@ -1,4 +1,6 @@
+import { MouseEventHandler } from 'react';
 import NextLink from 'next/link';
+import { FiGithub, FiTwitter, FiLinkedin } from 'react-icons/fi';
 import {
   Box,
   Button,
@@ -10,10 +12,8 @@ import {
   VStack,
   Text,
   Flex,
-  HStack,
   Link as CLink,
 } from '@chakra-ui/react';
-import { MouseEventHandler } from 'react';
 import { Avatar } from './Avatar';
 import { List } from './Lisp/List';
 import { Func } from './Lisp/Func';
@@ -72,7 +72,35 @@ const SidebarContent = ({ onClick }: ContentProps) => (
       </NextLink>
     </VStack>
     <VStack>
-      <Flex></Flex>
+      <Flex justifyContent="space-between" w="100%" px="10">
+        <CLink
+          href="https://github.com/berkeleytrue"
+          aria-label="A link to my github profile"
+          target="_blank"
+          rel="noreferrer"
+          color="blue.300"
+        >
+          <FiGithub />
+        </CLink>
+        <CLink
+          href="https://twitter.com/berkeleytrue"
+          aria-label="A link to my twitter profile"
+          target="_blank"
+          rel="noreferrer"
+          color="teal.300"
+        >
+          <FiTwitter />
+        </CLink>
+        <CLink
+          href="https://linkedin.com/in/berkeleytrue"
+          aria-label="A link to my linkedin profile"
+          target="_blank"
+          rel="noreferrer"
+          color="blue.400"
+        >
+          <FiLinkedin />
+        </CLink>
+      </Flex>
       <Box>
         <CLink
           aria-label="A link to the open source repository for this site"
@@ -83,6 +111,7 @@ const SidebarContent = ({ onClick }: ContentProps) => (
           alignItems="center"
           h="12"
           fontSize={{ base: 'xs', '2xl': 'lg' }}
+          color="teal.200"
         >
           This site is open source {'>=>'}
         </CLink>
