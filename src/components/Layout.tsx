@@ -1,5 +1,6 @@
 import { ReactNode } from 'react';
 import {
+  Box,
   Flex,
   Stack,
   useBoolean,
@@ -28,16 +29,30 @@ export function Layout({ children }: Props) {
         isOpen={isSidebarOpen}
         onClose={setSidebar.toggle}
       />
-      <Stack flexGrow={1} h="100%">
+      <Flex
+        flexGrow={1}
+        h="100%"
+        maxH="100vh"
+        w="100%"
+        flexDir="column"
+      >
         <Header
           h={headerSize}
           showButton={variants.showButton}
           onButtonPress={setSidebar.toggle}
         />
-        <VStack h={`calc(100% - var(--chakra-sizes-${headerSize}))`}>
-          {children}
-        </VStack>
-      </Stack>
+        <Flex
+          h={`calc(100% - var(--chakra-sizes-${headerSize}))`}
+          w="100%"
+          px="4"
+          overflowX="hidden"
+          overflowY="auto"
+        >
+          <Box mx="auto" w="100%" maxW="container.xl">
+            {children}
+          </Box>
+        </Flex>
+      </Flex>
     </Flex>
   );
 }
