@@ -1,3 +1,4 @@
+import * as _ from 'lodash/fp';
 import { extendTheme, ThemeConfig } from '@chakra-ui/react';
 import { createBreakpoints } from '@chakra-ui/theme-tools';
 import { colors } from './theme/colors';
@@ -39,6 +40,14 @@ const theme: ThemeConfig = extendTheme({
     },
   },
   colors,
+  semanticTokens: {
+    colors: _.flow(
+      _.toPairs,
+      _.filter(([, val]) => !_.isString(val) && val.main),
+      _.map(([key]) => [key, `${key}.main`]),
+      _.fromPairs,
+    )(colors),
+  },
   fonts,
   breakpoints,
   config: {
