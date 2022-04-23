@@ -17,6 +17,9 @@ export function sortDateDesc(a: string, b: string) {
 }
 
 export interface FrontMatter {
+  data: string;
+  description: string;
+  excerpt: string;
   slug: string;
   date: string;
   lastEdit: string;
@@ -48,7 +51,20 @@ export async function getAllFilesFrontMatter(
     // get frontmatter data
     _.map(([fileName, source]): [string, { [key: string]: any }] => [
       fileName,
-      _.get('data', matter(source)),
+      matter(source),
+    ]),
+    _.map(([fileName, matter]) => [
+      fileName,
+      {
+        ...matter.data,
+        content: matter.content,
+        excerpt: _.flow(
+          _.get('content'),
+          _.split('\n'),
+          _.take(4),
+          _.join('\n'),
+        )(matter),
+      },
     ]),
     // remove drafts
     _.remove(([, { draft }]) => draft),
