@@ -1,6 +1,6 @@
 ---
 title: Bash parallels
-summary: Making jobs run in parallel
+summary: Making bash jobs run in parallel
 date: 2022-03-09T08:00:00.000Z
 lastEdit: 2022-03-26T08:00:00.000Z
 tags:

@@ -53,19 +53,7 @@ export async function getAllFilesFrontMatter(
       fileName,
       matter(source),
     ]),
-    _.map(([fileName, matter]) => [
-      fileName,
-      {
-        ...matter.data,
-        content: matter.content,
-        excerpt: _.flow(
-          _.get('content'),
-          _.split('\n'),
-          _.take(4),
-          _.join('\n'),
-        )(matter),
-      },
-    ]),
+    _.map(([fileName, matter]) => [fileName, matter.data]),
     // remove drafts
     _.remove(([, { draft }]) => draft),
     // add slug and data
@@ -82,5 +70,6 @@ export async function getAllFilesFrontMatter(
       }),
     ),
     _.sortBy((a: FrontMatter) => a.date),
+    _.reverse,
   )(files);
 }
