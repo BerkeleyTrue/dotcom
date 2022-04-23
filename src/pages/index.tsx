@@ -96,7 +96,7 @@ const Index = ({ posts }: Props) => {
                       </dl>
                       <VStack spacing="5" alignItems="flex-start">
                         <VStack spacing="6" alignItems="flex-start">
-                          <NextLink href={`/blog/${slug}`} passHref>
+                          <NextLink href={`/posts/${slug}`} passHref>
                             <CLink>
                               <Text
                                 h="12"
@@ -113,7 +113,7 @@ const Index = ({ posts }: Props) => {
                           <Text>{summary}</Text>
                         </VStack>
 
-                        <NextLink href={`/blog/${slug}`} passHref>
+                        <NextLink href={`/posts/${slug}`} passHref>
                           <CLink aria-label={`Read ${title}`}>
                             <Text
                               _hover={{ color: 'dracula.100' }}
