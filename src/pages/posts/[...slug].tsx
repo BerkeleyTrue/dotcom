@@ -5,6 +5,7 @@ import {
   Flex,
   Heading,
   HStack,
+  StackDivider,
   Text,
   VisuallyHidden,
   VStack,
@@ -93,8 +94,33 @@ const Post = ({ title, date, summary, tags }: Props) => {
                 {title}
               </Heading>
             </Flex>
-            <Box>content</Box>
+            <VStack align="stretch">
+              <Box>Content</Box>
+              <Box>
+                <Text
+                  fontSize="sm"
+                  fontWeight="bold"
+                  lineHeight="5"
+                  my="6"
+                  ml="8"
+                  whiteSpace="pre"
+                >
+                  Happy Coding,
+                </Text>
+                <Text
+                  fontSize="sm"
+                  fontWeight="bold"
+                  lineHeight="5"
+                  my="6"
+                  ml="8"
+                  whiteSpace="pre"
+                >
+                  {'=<<Berkeley>>='}
+                </Text>
+              </Box>
+            </VStack>
             <Box as="footer" mb="12">
+              <Box></Box>
               {!_.isEmpty(tags) && (
                 <Box fontSize="sm" fontWeight="medium" lineHeight="5">
                   <Box py={{ base: '4', xl: '8' }}>
