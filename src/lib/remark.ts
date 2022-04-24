@@ -1,14 +1,13 @@
 import fs from 'fs';
 
-import { visit  } from 'unist-util-visit';
-import type { Parent, Node } from 'unist-util-visit';
+import { visit } from 'unist-util-visit';
+import type { Parent } from 'unist-util-visit';
 import sizeOf from 'image-size';
 import { load } from 'js-yaml';
 import slug from 'github-slugger';
 import { toString } from 'mdast-util-to-string';
-import remarkGfm from 'remark-gfm'
-import remarkFootnotes from 'remark-footnotes'
-import remarkMath from 'remark-math'
+import remarkGfm from 'remark-gfm';
+import remarkMath from 'remark-math';
 
 export const remarkCodeTitles = () => {
   return (tree) =>
@@ -107,7 +106,7 @@ export const remarkTocHeadings = (options) => {
 
 export const createRemarkPlugins = (options): any[] => [
   extractFrontmatter,
-  [ remarkTocHeadings, options ],
+  [remarkTocHeadings, options],
   remarkGfm,
   remarkCodeTitles,
   remarkMath,
