@@ -45,28 +45,28 @@ const SidebarContent = ({ onClick }: ContentProps) => (
       <NextLink href="/" passHref>
         <Button onClick={onClick} w="100%" display="flex" justifyContent="left">
           <List>
-            <Func>{'->'}</Func>&nbsp;Home
+            <Func>{'=<<'}</Func>&nbsp;Home
           </List>
         </Button>
       </NextLink>
-      <NextLink href="/catagories" passHref>
-        <Button onClick={onClick} w="100%" display="flex" justifyContent="left">
-          <List>
-            <Func>{'->>'}</Func>&nbsp;Catagories
-          </List>
-        </Button>
-      </NextLink>
+      {/* <NextLink href="/catagories" passHref> */}
+      {/*   <Button onClick={onClick} w="100%" display="flex" justifyContent="left"> */}
+      {/*     <List> */}
+      {/*       <Func>{'->>'}</Func>&nbsp;Catagories */}
+      {/*     </List> */}
+      {/*   </Button> */}
+      {/* </NextLink> */}
       <NextLink href="/tags" passHref>
         <Button onClick={onClick} w="100%" display="flex" justifyContent="left">
           <List>
-            <Func>{'->>'}</Func>&nbsp;Tags
+            <Func>{'=<<'}</Func>&nbsp;Tags
           </List>
         </Button>
       </NextLink>
       <NextLink href="/about" passHref>
         <Button onClick={onClick} w="100%" display="flex" justifyContent="left">
           <List>
-            <Func>{'->'}</Func>&nbsp;About
+            <Func>{'=<<'}</Func>&nbsp;About
           </List>
         </Button>
       </NextLink>
