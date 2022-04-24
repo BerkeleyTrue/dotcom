@@ -15,7 +15,7 @@ import { formatSlug, getFileBySlug, getFiles } from '../../lib/mdx';
 import { Layout } from '../../components/Layout';
 import { Head } from '../../components/Head';
 import { MainLink } from '../../components/Links';
-import { MDX } from '../../lib/mdx/provider';
+import { MDX } from '../../components/MDX';
 
 export const getStaticPaths: GetStaticPaths = () => {
   return _.flow(

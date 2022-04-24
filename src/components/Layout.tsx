@@ -2,10 +2,8 @@ import { ReactNode } from 'react';
 import {
   Box,
   Flex,
-  Stack,
   useBoolean,
   useBreakpointValue,
-  VStack,
 } from '@chakra-ui/react';
 
 import Sidebar, { Variants } from './Sidebar';
