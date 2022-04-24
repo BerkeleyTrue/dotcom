@@ -2,10 +2,22 @@ import fs from 'fs';
 import path from 'path';
 import matter from 'gray-matter';
 import * as _ from 'lodash/fp';
+import { bundleMDX } from 'mdx-bundler';
+import rehypePrismPlus from 'rehype-prism-plus';
+import rehypeAutolinkHeadings from 'rehype-autolink-headings';
 
 import { getAllFilesRecursively } from './utils/files';
 
+import { createRemarkPlugins } from './remark';
+
 const root = process.cwd();
+process.env.ESBUILD_BINARY_PATH = path.join(
+  root,
+  'node_modules',
+  'esbuild',
+  'bin',
+  'esbuild',
+);
 
 export const formatSlug = _.replace(/\.(mdx|md)/, '');
 
@@ -23,7 +35,6 @@ export const formatFrontmatterData = ([
 
 export interface FrontMatter {
   data: string;
-  description: string;
   excerpt: string;
   slug: string;
   date: string;
@@ -41,16 +52,49 @@ export const getFiles = (type: string): string[] => {
   );
 };
 
-export const getFileBySlug = (type: string, slug: string): FrontMatter => {
+export const getFileBySlug = async (
+  type: string,
+  slug: string,
+): Promise<{ source: string; frontmatter: FrontMatter }> => {
   const mdxPath = path.join(root, 'data', type, `${slug}.mdx`);
   const mdPath = path.join(root, 'data', type, `${slug}.md`);
   const source = fs.existsSync(mdxPath)
     ? fs.readFileSync(mdxPath, 'utf8')
     : fs.readFileSync(mdPath, 'utf8');
 
-  return _.flow(matter, _.get('data'), (data) =>
-    formatFrontmatterData([slug, data]),
-  )(source);
+  const toc = [];
+  const { code, matter } = await bundleMDX<FrontMatter>({
+    source,
+    // mdx imports can be automatically source from the components directory
+    cwd: path.join(root, 'src/components'),
+    mdxOptions(options) {
+      options.remarkPlugins = [
+        ...(options.remarkPlugins ?? []),
+        ...createRemarkPlugins({ exportRef: toc }),
+      ];
+
+      options.rehypePlugins = [
+        ...(options.rehypePlugins ?? []),
+        [rehypePrismPlus, { ignoreMissing: true }],
+        rehypeAutolinkHeadings,
+      ];
+
+      return options;
+    },
+    esbuildOptions: (options) => {
+      options.loader = {
+        ...options.loader,
+        '.js': 'jsx',
+      };
+      return options;
+    },
+  });
+
+  return {
+    source: code,
+    // toc,
+    frontmatter: formatFrontmatterData([mdxPath, matter.data]),
+  };
 };
 
 export function getAllFilesFrontMatter(folder: string): FrontMatter[] {

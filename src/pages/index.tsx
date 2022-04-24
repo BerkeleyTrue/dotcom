@@ -20,8 +20,8 @@ import { Layout } from '../components/Layout';
 import { Head } from '../components/Head';
 import { getAllFilesFrontMatter } from '../lib/mdx';
 
-export const getStaticProps: GetStaticProps = async () => {
-  const posts = await getAllFilesFrontMatter('posts');
+export const getStaticProps: GetStaticProps = () => {
+  const posts = getAllFilesFrontMatter('posts');
   const numOfPosts = _.size(posts);
   return {
     props: { posts, numOfPosts },

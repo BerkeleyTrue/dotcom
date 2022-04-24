@@ -5,7 +5,6 @@ import {
   Flex,
   Heading,
   HStack,
-  StackDivider,
   Text,
   VisuallyHidden,
   VStack,
@@ -16,6 +15,7 @@ import { formatSlug, getFileBySlug, getFiles } from '../../lib/mdx';
 import { Layout } from '../../components/Layout';
 import { Head } from '../../components/Head';
 import { MainLink } from '../../components/Links';
+import { MDX } from '../../lib/mdx/provider';
 
 export const getStaticPaths: GetStaticPaths = () => {
   return _.flow(
@@ -32,12 +32,14 @@ export const getStaticPaths: GetStaticPaths = () => {
   )('posts');
 };
 
-export const getStaticProps: GetStaticProps = ({ params }) => {
+export const getStaticProps: GetStaticProps = async ({ params }) => {
   const joinedSlug = _.join('/', params.slug);
-  const post = getFileBySlug('posts', joinedSlug);
+  const post = await getFileBySlug('posts', joinedSlug);
+
   return {
     props: {
-      ...post,
+      ...post.frontmatter,
+      source: post.source,
     },
   };
 };
@@ -47,8 +49,9 @@ interface Props {
   date: string;
   summary: string;
   tags: string[];
+  source: string;
 }
-const Post = ({ title, date, summary, tags }: Props) => {
+const Post = ({ title, date, summary, tags, source }: Props) => {
   return (
     <>
       <Head subTitle={title}>
@@ -94,8 +97,13 @@ const Post = ({ title, date, summary, tags }: Props) => {
                 {title}
               </Heading>
             </Flex>
+
             <VStack align="stretch">
-              <Box>Content</Box>
+              <Box pt="10" pb="8">
+                <Box>
+                  <MDX source={source} />
+                </Box>
+              </Box>
               <Box>
                 <Text
                   fontSize="sm"
@@ -120,7 +128,6 @@ const Post = ({ title, date, summary, tags }: Props) => {
               </Box>
             </VStack>
             <Box as="footer" mb="12">
-              <Box></Box>
               {!_.isEmpty(tags) && (
                 <Box fontSize="sm" fontWeight="medium" lineHeight="5">
                   <Box py={{ base: '4', xl: '8' }}>
