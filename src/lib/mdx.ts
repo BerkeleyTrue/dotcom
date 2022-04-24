@@ -9,6 +9,7 @@ import rehypeAutolinkHeadings from 'rehype-autolink-headings';
 import { getAllFilesRecursively } from './utils/files';
 
 import { createRemarkPlugins } from './remark';
+import { FrontMatter } from '../types';
 
 const root = process.cwd();
 process.env.ESBUILD_BINARY_PATH = path.join(
@@ -32,14 +33,6 @@ export const formatFrontmatterData = ([
     ? new Date(frontmatter.date).toISOString()
     : null,
 });
-
-export interface FrontMatter {
-  data: string;
-  excerpt: string;
-  slug: string;
-  date: string;
-  lastEdit: string;
-}
 
 export const getFiles = (type: string): string[] => {
   const prefixPaths = path.join(root, 'data', type);
