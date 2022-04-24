@@ -128,7 +128,7 @@ const components = {
       cursor="pointer"
       textDecoration="none"
       outline="none"
-      color="inherit"
+      color="cyan"
       _hover={{
         textDecoration: 'underline',
       }}

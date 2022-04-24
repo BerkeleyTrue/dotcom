@@ -4,10 +4,11 @@ export interface TagCount {
 }
 
 export interface FrontMatter {
+  title?: string;
   data: string;
   excerpt?: string;
   slug: string;
   date: string;
-  lastEdit: string;
+  lastEdit?: string;
   draft?: boolean;
 }
