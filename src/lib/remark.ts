@@ -1,8 +1,5 @@
-import fs from 'fs';
-
 import { visit } from 'unist-util-visit';
-import type { Parent } from 'unist-util-visit';
-import sizeOf from 'image-size';
+import type { Parent, Node, Literal } from 'unist';
 import { load } from 'js-yaml';
 import slug from 'github-slugger';
 import { toString } from 'mdast-util-to-string';
@@ -10,8 +7,8 @@ import remarkGfm from 'remark-gfm';
 import remarkMath from 'remark-math';
 
 export const remarkCodeTitles = () => {
-  return (tree) =>
-    visit(tree, 'code', (node, index, parent) => {
+  return (tree: Node) =>
+    visit(tree, 'code', (node: Node & { lang: string }, index, parent: Parent) => {
       const nodeLang = node.lang || '';
       let language = '';
       let title = '';
@@ -43,58 +40,16 @@ export const remarkCodeTitles = () => {
 };
 
 export const extractFrontmatter = () => {
-  return (tree, file) => {
-    visit(tree, 'yaml', (node) => {
+  return (tree: Node, file: Node) => {
+    visit(tree, 'yaml', (node: Literal<string>) => {
       file.data.frontmatter = load(node.value);
     });
   };
 };
 
-export const remarkImgToJsx = () => {
-  return (tree) => {
-    visit(
-      tree,
-      // only visit p tags that contain an img element
-      (node: Parent) =>
-        node.type === 'paragraph' &&
-        node.children?.some((n) => n.type === 'image'),
-      (node) => {
-        const imageNode = node.children.find((n) => n.type === 'image');
-
-        // only local files
-        if (fs.existsSync(`${process.cwd()}/public${imageNode.url}`)) {
-          const dimensions = sizeOf(`${process.cwd()}/public${imageNode.url}`);
-
-          // Convert original node to next/image
-          (imageNode.type = 'mdxJsxFlowElement'),
-            (imageNode.name = 'Image'),
-            (imageNode.attributes = [
-              { type: 'mdxJsxAttribute', name: 'alt', value: imageNode.alt },
-              { type: 'mdxJsxAttribute', name: 'src', value: imageNode.url },
-              {
-                type: 'mdxJsxAttribute',
-                name: 'width',
-                value: dimensions.width,
-              },
-              {
-                type: 'mdxJsxAttribute',
-                name: 'height',
-                value: dimensions.height,
-              },
-            ]);
-
-          // Change node type from p to div to avoid nesting error
-          node.type = 'div';
-          node.children = [imageNode];
-        }
-      },
-    );
-  };
-};
-
-export const remarkTocHeadings = (options) => {
-  return (tree) =>
-    visit(tree, 'heading', (node) => {
+export const remarkTocHeadings = (options: { exportRef: any[] }) => {
+  return (tree: Node) =>
+    visit(tree, 'heading', (node: Node & { depth: any}) => {
       const textContent = toString(node);
       options.exportRef.push({
         value: textContent,
@@ -104,11 +59,10 @@ export const remarkTocHeadings = (options) => {
     });
 };
 
-export const createRemarkPlugins = (options): any[] => [
+export const createRemarkPlugins = (options: { exportRef: any[] }): any[] => [
   extractFrontmatter,
   [remarkTocHeadings, options],
   remarkGfm,
   remarkCodeTitles,
   remarkMath,
-  remarkImgToJsx,
 ];
