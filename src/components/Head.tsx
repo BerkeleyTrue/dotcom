@@ -1,11 +1,11 @@
 import NextHead from 'next/head';
-import { ReactNode } from 'react';
+import { PropsWithChildren } from 'react';
 
 interface Props {
   subTitle: string;
-  children: ReactNode;
 }
-export const Head = ({ subTitle, children }: Props) => (
+
+export const Head = ({ subTitle, children }: PropsWithChildren<Props>) => (
   <NextHead>
     <title>berks//{subTitle}</title>
     <link href="/images/favicon.ico" rel="shortcut icon" />
