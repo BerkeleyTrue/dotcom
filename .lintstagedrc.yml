@@ -1,0 +1,7 @@
+---
+'{src,scripts}/**/*.tsx?':
+  - eslint --fix --max-warnings=0
+  - prettier --write
+
+'**/*.yml':
+  - prettier --write --parser yaml
