@@ -70,5 +70,6 @@ yarn-error.log
 # nextjs
 next-env.d.ts
 .next
+.husky
 _site
 out
