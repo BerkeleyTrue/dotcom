@@ -4,7 +4,7 @@ summary: Syncing Taskwarrior across servers
 date: 2022-06-23T08:00:00.000Z
 tags:
   - taskwarrior
-lastEdit: '2022-06-23T17:56:50.832Z'
+lastEdit: '2022-06-23T18:29:01.211Z'
 
 ---
 
@@ -33,12 +33,14 @@ field is for. Keep this private. I accomplished this by using `include $HOME/.co
 in my taskrc and making sure the taskserverrc file is ignored by git. In the
 taskserverrc file, we add:
 
-    taskd.certificate=/path/to/private.certificate.pem
-    taskd.key=/path/to/private.key.pem
-    taskd.ca=/path/to/ca.cert.pem
-    taskd.server=inthe.am:53589
-    taskd.credentials=inthe_am/<username>/<uuid>
-    taskd.trust=strict
+```config
+taskd.certificate=/path/to/private.certificate.pem
+taskd.key=/path/to/private.key.pem
+taskd.ca=/path/to/ca.cert.pem
+taskd.server=inthe.am:53589
+taskd.credentials=inthe_am/<username>/<uuid>
+taskd.trust=strict
+```
 
 Now you should be able to hit `task sync` and see a `sync successful`.
 
@@ -153,7 +155,9 @@ exit
 
 Finally, we add the cron job using `crontab -e` to run every hour.
 
-    0 * * * * /home/berkeleytrue/.config/task/scripts/cron-update.sh
+```cron
+0 * * * * /home/berkeleytrue/.config/task/scripts/cron-update.sh
+```
 
 And that's it. You should be syncing with [InThe.Am][intheam].
 
