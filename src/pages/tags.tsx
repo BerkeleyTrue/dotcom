@@ -21,11 +21,11 @@ export const getStaticProps: GetStaticProps<Props> = () => {
 const Tags = ({ tags }: Props) => {
   return (
     <>
-      <Head subTitle="tags" />
+      <Head subTitle='tags' />
       <Layout>
-        <VStack mt="16">
-          <Box as="header" mb="16">
-            <Heading as="h2" mb="4">
+        <VStack mt='16'>
+          <Box as='header' mb='16'>
+            <Heading as='h2' mb='4'>
               Tags
             </Heading>
             <Text>Not many, but enough</Text>
@@ -33,7 +33,7 @@ const Tags = ({ tags }: Props) => {
           <Flex>
             {tags.map(({ tag, count }) => (
               <MainLink key={tag} href={`/tags/${tag}`}>
-                <Badge p="2" borderRadius="xl" colorScheme="green">
+                <Badge mx='1' p='2' borderRadius='xl' colorScheme='green'>
                   {tag} - {count}
                 </Badge>
               </MainLink>
