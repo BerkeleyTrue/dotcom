@@ -21,9 +21,6 @@ const breakpoints = createBreakpoints({
 const theme: ThemeConfig = extendTheme({
   components: {
     Button: {
-      baseStyle: {
-        background: 'red',
-      },
       variants: {
         solid: {
           bg: 'dark.900',

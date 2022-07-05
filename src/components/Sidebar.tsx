@@ -17,6 +17,7 @@ import {
 import { Avatar } from './Avatar';
 import { List } from './Lisp/List';
 import { Func } from './Lisp/Func';
+import { NavItem } from './Nav/NavItem';
 
 export type Variants = 'drawer' | 'sidebar';
 
@@ -29,89 +30,64 @@ interface ContentProps {
 }
 
 const SidebarContent = ({ onClick }: ContentProps) => (
-  <Flex h="100%" w="100%" flexFlow="column" justifyContent="space-between">
+  <Flex h='100%' w='100%' flexFlow='column' justifyContent='space-between'>
     <VStack>
-      <Flex flexFlow="column" pb="6" alignItems="center">
+      <Flex flexFlow='column' pb='6' alignItems='center'>
         <Avatar />
-        <Text fontSize={{ base: 'medium' }} mt="4">
+        <Text fontSize={{ base: 'medium' }} mt='4'>
           <List>
             <Func>Berkeley</Func>
-            <Text as="span" color="purple.400">
+            <Text as='span' color='purple.400'>
               &nbsp;true
             </Text>
           </List>
         </Text>
       </Flex>
-      <NextLink href="/" passHref>
-        <Button onClick={onClick} w="100%" display="flex" justifyContent="left">
-          <List>
-            <Func>{'=<<'}</Func>&nbsp;Home
-          </List>
-        </Button>
-      </NextLink>
-      {/* <NextLink href="/catagories" passHref> */}
-      {/*   <Button onClick={onClick} w="100%" display="flex" justifyContent="left"> */}
-      {/*     <List> */}
-      {/*       <Func>{'->>'}</Func>&nbsp;Catagories */}
-      {/*     </List> */}
-      {/*   </Button> */}
-      {/* </NextLink> */}
-      <NextLink href="/tags" passHref>
-        <Button onClick={onClick} w="100%" display="flex" justifyContent="left">
-          <List>
-            <Func>{'=<<'}</Func>&nbsp;Tags
-          </List>
-        </Button>
-      </NextLink>
-      <NextLink href="/about" passHref>
-        <Button onClick={onClick} w="100%" display="flex" justifyContent="left">
-          <List>
-            <Func>{'=<<'}</Func>&nbsp;About
-          </List>
-        </Button>
-      </NextLink>
+      <NavItem href='/'>Home</NavItem>
+      <NavItem href='/tags'>Tags</NavItem>
+      <NavItem href='/about'>About</NavItem>
     </VStack>
     <VStack>
-      <Flex justifyContent="space-between" w="100%" px="10">
+      <Flex justifyContent='space-between' w='100%' px='10'>
         <CLink
-          href="https://github.com/berkeleytrue"
-          aria-label="A link to my github profile"
-          target="_blank"
-          rel="noreferrer"
-          color="blue.300"
+          href='https://github.com/berkeleytrue'
+          aria-label='A link to my github profile'
+          target='_blank'
+          rel='noreferrer'
+          color='blue.300'
         >
           <FiGithub />
         </CLink>
         <CLink
-          href="https://twitter.com/berkeleytrue"
-          aria-label="A link to my twitter profile"
-          target="_blank"
-          rel="noreferrer"
-          color="teal.300"
+          href='https://twitter.com/berkeleytrue'
+          aria-label='A link to my twitter profile'
+          target='_blank'
+          rel='noreferrer'
+          color='teal.300'
         >
           <FiTwitter />
         </CLink>
         <CLink
-          href="https://linkedin.com/in/berkeleytrue"
-          aria-label="A link to my linkedin profile"
-          target="_blank"
-          rel="noreferrer"
-          color="blue.400"
+          href='https://linkedin.com/in/berkeleytrue'
+          aria-label='A link to my linkedin profile'
+          target='_blank'
+          rel='noreferrer'
+          color='blue.400'
         >
           <FiLinkedin />
         </CLink>
       </Flex>
       <Box>
         <CLink
-          aria-label="A link to the open source repository for this site"
-          href="https://github.com/berkeleytrue/dotcom"
-          target="_blank"
-          display="flex"
-          justifyContent="center"
-          alignItems="center"
-          h="12"
+          aria-label='A link to the open source repository for this site'
+          href='https://github.com/berkeleytrue/dotcom'
+          target='_blank'
+          display='flex'
+          justifyContent='center'
+          alignItems='center'
+          h='12'
           fontSize={{ base: 'xs', '2xl': 'lg' }}
-          color="teal.200"
+          color='teal.200'
         >
           This site is open source {'>=>'}
         </CLink>
@@ -130,17 +106,17 @@ const Sidebar = ({ isOpen, variant, onClose }: Props) => {
     <Box
       p={5}
       w={{ base: '64', xl: '80', '2xl': '96' }}
-      h="100%"
+      h='100%'
       {...sidebarStyles}
     >
       <SidebarContent onClick={onClose as MouseEventHandler} />
     </Box>
   ) : (
-    <Drawer isOpen={isOpen} placement="left" onClose={onClose}>
+    <Drawer isOpen={isOpen} placement='left' onClose={onClose}>
       <DrawerOverlay>
         <DrawerContent {...sidebarStyles}>
           <DrawerCloseButton />
-          <DrawerBody pt="12">
+          <DrawerBody pt='12'>
             <SidebarContent onClick={onClose} />
           </DrawerBody>
         </DrawerContent>
