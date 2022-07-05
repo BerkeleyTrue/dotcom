@@ -1,14 +1,5 @@
 import * as _ from 'lodash/fp';
-import dayjs from 'dayjs';
-import {
-  Box,
-  Flex,
-  Heading,
-  HStack,
-  Text,
-  VisuallyHidden,
-  VStack,
-} from '@chakra-ui/react';
+import { Box, Flex, Heading, HStack, Text, VStack } from '@chakra-ui/react';
 import { GetStaticPaths, GetStaticProps } from 'next';
 
 import { formatSlug, getFileBySlug, getFiles } from '../../lib/mdx';
@@ -16,6 +7,7 @@ import { Layout } from '../../components/Layout';
 import { Head } from '../../components/Head';
 import { MainLink } from '../../components/Links';
 import { MDX } from '../../components/MDX';
+import { DateDisplay } from '../../components/DateDisplay';
 
 export const getStaticPaths: GetStaticPaths = () => {
   return _.flow(
@@ -55,88 +47,73 @@ const Post = ({ title, date, summary, tags, source }: Props) => {
   return (
     <>
       <Head subTitle={title}>
-        <meta name="description" content={`Berkeley talks: ${summary}`} />
+        <meta name='description' content={`Berkeley talks: ${summary}`} />
       </Head>
       <Layout>
         <Box
           maxW={{ base: '3xl', lg: '5xl' }}
           px={{ base: '5', xl: '0' }}
-          mx="auto"
+          mx='auto'
         >
-          <VStack align="stretch">
+          <VStack align='stretch'>
             <Flex
-              flexDirection="column"
-              as="header"
-              pt="6"
+              flexDirection='column'
+              as='header'
+              pt='6'
               pb={{ xl: 6 }}
-              alignItems="center"
+              alignItems='center'
             >
-              <dl>
-                <VisuallyHidden>
-                  <dt>Published On</dt>
-                </VisuallyHidden>
-                <dd>
-                  <time dateTime={date} />{' '}
-                  <Text
-                    fontSize="md"
-                    fontWeight="medium"
-                    lineHeight="6"
-                    color="cyan"
-                  >
-                    {dayjs(date).format('MMM D, YYYY')}
-                  </Text>
-                </dd>
-              </dl>
+              <DateDisplay date={date} />
               <Heading
-                pt="4"
+                pt='4'
                 fontSize={{ base: '4xl', md: '5xl' }}
-                fontWeight="extrabold"
+                fontWeight='extrabold'
                 lineHeight={{ base: '10', md: '9' }}
-                letterSpacing="tight"
+                letterSpacing='tight'
               >
                 {title}
               </Heading>
             </Flex>
 
-            <VStack align="stretch">
-              <Box pt="10" pb="8">
+            <VStack align='stretch'>
+              <Box pt='10' pb='8'>
                 <Box>
                   <MDX source={source} />
                 </Box>
               </Box>
               <Box>
                 <Text
-                  fontSize="sm"
-                  fontWeight="bold"
-                  lineHeight="5"
-                  my="6"
-                  ml="8"
-                  whiteSpace="pre"
+                  fontSize='sm'
+                  fontWeight='bold'
+                  lineHeight='5'
+                  my='6'
+                  ml='8'
+                  whiteSpace='pre'
                 >
                   Happy Coding,
                 </Text>
                 <Text
-                  fontSize="sm"
-                  fontWeight="bold"
-                  lineHeight="5"
-                  my="6"
-                  ml="8"
-                  whiteSpace="pre"
+                  fontSize='sm'
+                  fontWeight='bold'
+                  lineHeight='5'
+                  my='6'
+                  ml='8'
+                  whiteSpace='pre'
                 >
                   {'=<<Berkeley>>='}
                 </Text>
               </Box>
             </VStack>
-            <Box as="footer" mb="12">
+            <Box as='footer' mb='12'>
               {!_.isEmpty(tags) && (
-                <Box fontSize="sm" fontWeight="medium" lineHeight="5">
+                <Box fontSize='sm' fontWeight='medium' lineHeight='5'>
                   <Box py={{ base: '4', xl: '8' }}>
                     <Text
-                      as="h2"
-                      fontSize="xs"
-                      letterSpacing="wide"
-                      color="blue"
-                      textTransform="uppercase"
+                      as='h2'
+                      fontSize='xs'
+                      letterSpacing='wide'
+                      color='blue'
+                      textTransform='uppercase'
                     >
                       Tags
                     </Text>
