@@ -1,4 +1,4 @@
-import { MouseEventHandler } from 'react';
+import { ComponentProps, MouseEventHandler } from 'react';
 import NextLink from 'next/link';
 import { FiGithub, FiTwitter, FiLinkedin } from 'react-icons/fi';
 import {
@@ -99,29 +99,31 @@ const SidebarContent = ({ onClick }: ContentProps) => (
 interface Props {
   onClose: () => void;
   isOpen: boolean;
-  variant: Variants;
+  sidebarWidth: ComponentProps<typeof Box>['width'];
 }
-const Sidebar = ({ isOpen, variant, onClose }: Props) => {
-  return variant === 'sidebar' ? (
-    <Box
-      p={5}
-      w={{ base: '64', xl: '80', '2xl': '96' }}
-      h='100%'
-      {...sidebarStyles}
-    >
-      <SidebarContent onClick={onClose as MouseEventHandler} />
-    </Box>
-  ) : (
-    <Drawer isOpen={isOpen} placement='left' onClose={onClose}>
-      <DrawerOverlay>
-        <DrawerContent {...sidebarStyles}>
-          <DrawerCloseButton />
-          <DrawerBody pt='12'>
-            <SidebarContent onClick={onClose} />
-          </DrawerBody>
-        </DrawerContent>
-      </DrawerOverlay>
-    </Drawer>
+const Sidebar = ({ isOpen, onClose, sidebarWidth }: Props) => {
+  return (
+    <>
+      <Box
+        p={5}
+        w={sidebarWidth}
+        h='100%'
+        {...sidebarStyles}
+        display={{ base: 'none', md: 'unset' }}
+      >
+        <SidebarContent onClick={onClose as MouseEventHandler} />
+      </Box>
+      <Drawer isOpen={isOpen} placement='left' onClose={onClose}>
+        <DrawerOverlay>
+          <DrawerContent {...sidebarStyles}>
+            <DrawerCloseButton />
+            <DrawerBody pt='12'>
+              <SidebarContent onClick={onClose} />
+            </DrawerBody>
+          </DrawerContent>
+        </DrawerOverlay>
+      </Drawer>
+    </>
   );
 };
 
