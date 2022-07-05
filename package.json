@@ -9,7 +9,7 @@
     "start": "next",
     "start:prod": "next start",
     "build": "next build && next export",
-    "prepare": "node ./scripts/prepare.js",
+    "prepare": "node ./scripts/prepare.cjs",
     "precommit": "lint-staged"
   },
   "dependencies": {
