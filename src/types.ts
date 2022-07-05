@@ -11,4 +11,5 @@ export interface FrontMatter {
   date: string;
   lastEdit?: string;
   draft?: boolean;
+  tags?: string[];
 }
