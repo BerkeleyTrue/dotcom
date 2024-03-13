@@ -1,12 +1,8 @@
----
-title: Bash parallels
-summary: Making bash jobs run in parallel
-date: 2022-03-09T08:00:00.000Z
-lastEdit: '2022-04-25T05:52:34.945Z'
-tags:
-  - bash
-
----
+Title: Bash parallels
+Summary: Making bash jobs run in parallel
+Date: 2022-03-09
+LastEdit: 2022-04-25
+Tags: bash
 
 I spent 2+ hours working on a function to sync my private notes Repos.
 Actually getting the initial concept to work was quick, but then

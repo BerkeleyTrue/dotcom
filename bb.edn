@@ -1,0 +1,41 @@
+{:pods {clj-kondo/clj-kondo {:version "2024.03.05"}}
+ :deps {io.github.borkdude/quickblog {:git/sha "aab20855db9a5281728b71147a083bcdd261799a"}
+        org.babashka/cli {:mvn/version "0.3.31"}}
+ :paths ["."]
+ :tasks
+ {:requires ([babashka.fs :as fs]
+             [quickblog.api :as r]
+             [babashka.cli :as cli])
+
+  :init (def opts
+          (merge (cli/parse-opts *command-line-args*)
+                 {:blog-author "Berkeley Martinez"
+                  :blog-title "Berkeley True"
+                  :blog-description "Doing tech, one line of code at a time. Happy Coding."
+                  :out-dir "out"
+                  :blog-root "https://berkeleytrue.com/"
+                  :discuss-link "https://github.com/berkeleytrue/dotcom/discussions/categories/posts"
+                  :about-link "https://berkeleytrue.com/about"
+                  :favicon false
+                  :posts-dir "data"
+                  :assets-dir "public"
+                  :port 3000
+                  :favicon-dir "public/favicon"}))
+
+  new {:doc "Create new blog article"
+       :task (r/new opts)}
+
+  render {:doc "Render blog"
+          :task (r/quickblog opts)}
+
+  clean {:doc "Remove .work and out directory"
+         :task (do (fs/delete-tree ".work")
+                   (fs/delete-tree "out"))}
+
+  watch  {:doc "Watch posts and templates and call render on file changes"
+          :depends [clean render]
+          :task (r/watch opts)}
+
+  quickblog {:doc "Start blogging quickly! Run `bb quickblog help` for details."
+             :requires ([quickblog.cli :as qcli])
+             :task (qcli/dispatch opts)}}}

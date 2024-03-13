@@ -73,3 +73,8 @@ next-env.d.ts
 .husky
 _site
 out
+# clojure
+.clj-kondo
+.direnv
+.work
+.nrepl-port

@@ -1,12 +1,8 @@
----
-title: Taskwarrior Sync
-summary: Syncing Taskwarrior across servers
-date: 2022-06-23T08:00:00.000Z
-tags:
-  - taskwarrior
-lastEdit: '2022-06-23T18:29:01.211Z'
-
----
+Title: Taskwarrior Sync
+Summary: Syncing Taskwarrior across servers
+Date: 2022-06-23
+LastEdit: 2022-06-23
+Tags: taskwarrior
 
 I use Taskwarrior to keep track of my todos for long term projects as well as
 daily tasks. While I love Taskwarrior, there are often times where I'm away
