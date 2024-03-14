@@ -10,7 +10,7 @@ I wanted to make it work in parallel, easy. But then I wanted to capture the
 output and make it print out in serial. Not so easy.
 
 Here is the my final solution:
-
+<!-- end-of-preview -->
 ```bash
 notessync() {
   set +m

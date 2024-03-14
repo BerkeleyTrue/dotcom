@@ -15,6 +15,7 @@ Taskwarrior.
 
 One thing I found lacking was documentation on sync back and forth with my
 desktop. So I put some bash scripts together.
+<!-- end-of-preview -->
 
 First, we create an account on [InThe.Am][intheam]. Through their dashboard you
 will be able to download PEM certs. You'll need to put these somewhere you can
