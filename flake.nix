@@ -40,6 +40,9 @@
             babashka
             clojure
             clojure-lsp
+            nodejs_20
+            tailwindcss
+            tailwindcss-language-server
           ];
         };
       };

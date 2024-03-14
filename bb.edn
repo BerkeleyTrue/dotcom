@@ -32,8 +32,15 @@
          :task (do (fs/delete-tree ".work")
                    (fs/delete-tree "out"))}
 
+  css {:doc "Compile Tailwind CSS to out/style.css"
+       :task (shell "tailwindcss -i templates/style.css -o out/style.css")}
+
+  watch-css {:doc "Watch Tailwind CSS and compile to out/style.css"
+             :depends [css]
+             :task (shell "tailwindcss -i templates/style.css -o out/style.css --watch")}
+
   dev  {:doc "Watch posts and templates and call render on file changes, starts file server"
-        :depends [clean render]
+        :depends [clean render watch-css]
         :task (r/watch opts)}
 
   quickblog {:doc "Start blogging quickly! Run `bb quickblog help` for details."
