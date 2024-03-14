@@ -32,9 +32,9 @@
          :task (do (fs/delete-tree ".work")
                    (fs/delete-tree "out"))}
 
-  watch  {:doc "Watch posts and templates and call render on file changes"
-          :depends [clean render]
-          :task (r/watch opts)}
+  dev  {:doc "Watch posts and templates and call render on file changes, starts file server"
+        :depends [clean render]
+        :task (r/watch opts)}
 
   quickblog {:doc "Start blogging quickly! Run `bb quickblog help` for details."
              :requires ([quickblog.cli :as qcli])
