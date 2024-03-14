@@ -1,5 +1,9 @@
 ---
-trailingComma: all
-singleQuote: true
-parser: typescript
-jsxSingleQuote: true
+semi: false
+tabWidth: 2
+useTabs: false
+printWidth: 200
+htmlWhitespaceSensitivity: "strict"
+singleAttributePerLine: true
+plugins:
+  - prettier-plugin-tailwindcss

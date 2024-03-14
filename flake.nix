@@ -43,6 +43,7 @@
             nodejs_20
             tailwindcss
             tailwindcss-language-server
+            nodePackages.prettier
           ];
         };
       };
