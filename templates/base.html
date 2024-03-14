@@ -42,34 +42,33 @@
     <meta name="twitter:site" content="{{sharing.twitter-handle}}">
 {% endif %}
   </head>
-  <body class="h-full">
+  <body class="h-screen flex-no-wrap flex-col items-center">
 
-    <div class="site-header">
-      <div class="wrapper">
-        <div class="site-nav">
-          <!-- <a class="page-link" href="{{relative-path | safe}}archive{{page-suffix}}">Archive</a> -->
-          <a class="page-link" href="{{relative-path | safe}}tags/index.html">Tags</a>
-          {% if discuss-link %}<a class="page-link" href="{{discuss-link}}">Discuss</a>{% endif %}
-	  <a class="page-link" href="{{relative-path | safe}}atom.xml">
-            Feed
-          </a>
-	  {% if twitter-handle %}
-	  <a class="page-link" href="https://twitter.com/{{twitter-handle}}">
-            Twitter
-          </a>
-	  {% endif %}
-	  {% if about-link %}
-          <a class="page-link" href="{{relative-path | safe}}about">About</a>
-	  {% endif %}
-        </div>
-        <div>
-          <h1 class="site-title">
-            <a class="page-link" href="{{relative-path | safe}}index.html">{{blog-title}}</a>
-          </h1>
-	  <p>{{blog-description}}</p>
-        </div>
+    <div class="max-w-5xl min-h-14">
+      <nav class="flex-no-wrap relative flex w-full items-center justify between px-3">
+        <!-- <a class="page-link" href="{{relative-path | safe}}archive{{page-suffix}}">Archive</a> -->
+        <a class="page-link" href="{{relative-path | safe}}tags/index.html">Tags</a>
+        {% if discuss-link %}<a class="page-link" href="{{discuss-link}}">Discuss</a>{% endif %}
+        <a class="page-link" href="{{relative-path | safe}}atom.xml">
+          Feed
+        </a>
+        {% if twitter-handle %}
+        <a class="page-link" href="https://twitter.com/{{twitter-handle}}">
+          Twitter
+        </a>
+        {% endif %}
+        {% if about-link %}
+        <a class="page-link" href="{{relative-path | safe}}about">About</a>
+        {% endif %}
+      </nav>
+      <div>
+        <h1 class="site-title">
+          <a class="page-link" href="{{relative-path | safe}}index.html">{{blog-title}}</a>
+        </h1>
+        <p>{{blog-description}}</p>
       </div>
     </div>
+
 
     <div class="wrapper">
 
