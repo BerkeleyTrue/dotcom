@@ -11,7 +11,7 @@
           (merge (cli/parse-opts *command-line-args*)
                  {:blog-author "Berkeley Martinez"
                   :blog-title "Berkeley True"
-                  :blog-description "Doing tech, one line of code at a time. Happy Coding."
+                  :blog-description "Doing tech, one line of code at a time."
                   :out-dir "out"
                   :blog-root "https://berkeleytrue.com/"
                   :discuss-link "https://github.com/berkeleytrue/dotcom/discussions/categories/posts"
@@ -44,7 +44,7 @@
   -dev {:depends [dev:templates dev:css]}
 
   dev {:doc "Start development server with file watching and live reload."
-       :depends [clean render]
+       :depends [clean render css]
        :task (run '-dev {:parallel true})}
 
   quickblog {:doc "Start blogging quickly! Run `bb quickblog help` for details."

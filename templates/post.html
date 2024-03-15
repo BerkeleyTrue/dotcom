@@ -1,26 +1,23 @@
-<h1>
-  {% if post-link %}
-  <a href="{{post-link}}">
+<section class="prose mb-12">
+  <h2>
+    {% if post-link %}
+    <a href="{{post-link}}"> {% endif %} {{title}} {% if post-link %} </a>
+    {% endif %}
+  </h2>
+  <p><i>Published: {{date}}</i></p>
+  <article> {{body | safe}} </article>
+  {% if discuss-link %}
+  <p>Discuss this post <a href="{{discuss}}">here</a>.</p>
   {% endif %}
-  {{title}}
-  {% if post-link %}
-  </a>
+  {% if tags %}
+  <p>
+    <i>
+      Tagged: {% for tag in tags %}
+      <span class="tag">
+        <a href="tags/{{tag|escape-tag}}{{page-suffix}}">{{tag}}</a>
+      </span>
+      {% endfor %}
+    </i>
+  </p>
   {% endif %}
-</h1>
-{{body | safe}}
-{% if discuss-link %}
-<p>Discuss this post <a href="{{discuss}}">here</a>.</p>
-{% endif %}
-<p><i>Published: {{date}}</i></p>
-{% if tags %}
-<p>
-  <i>
-  Tagged:
-  {% for tag in tags %}
-  <span class="tag">
-    <a href="tags/{{tag|escape-tag}}{{page-suffix}}">{{tag}}</a>
-  </span>
-  {% endfor %}
-  </i>
-</p>
-{% endif %}
+</section>

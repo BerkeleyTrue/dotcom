@@ -1,11 +1,13 @@
-<div style="width: 600px">
-    <h1>{{title}}</h1>
-    {% for post-group in post-groups %}
-    <h2>{{post-group.year}}</h2>
-    <ul class="index">
-        {% for post-link in post-group.post-links %}
-            <li><span><a href="{{post-link.url}}">{{post-link.title}}</a> - {{post-link.date}}</span></li>
-        {% endfor %}
-    </ul>
+<section class="container prose mx-auto">
+  <h2 class="capitalize">{{title}}</h2>
+  {% for post-group in post-groups %}
+  <h3>{{post-group.year}}</h3>
+  <ul class="">
+    {% for post-link in post-group.post-links %}
+    <li
+      ><span class="capitalize"><a href="{{post-link.url}}">{{post-link.title}}</a></span> - <span class="text-xs">{{post-link.date}}</span></li
+    >
     {% endfor %}
-</div>
+  </ul>
+  {% endfor %}
+</section>
