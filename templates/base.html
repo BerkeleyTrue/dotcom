@@ -107,50 +107,51 @@
 
   <body class="flex-no-wrap mx-auto min-h-screen w-screen max-w-screen-lg flex-col items-center bg-base text-text">
     <div class="min-h-14 max-w-5xl overflow-hidden">
-      <nav class="shadow-dark-mild relative flex w-full flex-nowrap items-center justify-between bg-overlay0/50 px-2 py-2 text-subtext1 lg:justify-start lg:rounded lg:py-4">
-        <div class="flex w-full flex-wrap items-center justify-between px-3 md:justify-end">
-          <!-- <a class="page-link" href="{{relative-path | safe}}archive{{page-suffix}}">Archive</a> -->
-          <a
-            hx-boost="true"
-            class="hover:text-neutral-700 focus:text-neutral-700 md:ml-4"
-            href="{{relative-path | safe}}tags/index.html"
-            >Tags</a
-          >
+      <nav class="shadow-dark-mild relative flex w-full flex-nowrap items-center justify-between bg-overlay0/50 px-2 py-2 text-sapphire md:justify-end lg:rounded lg:px-4">
+        <!-- <a class="page-link" href="{{relative-path | safe}}archive{{page-suffix}}">Archive</a> -->
+        <a
+          hx-boost="true"
+          class="hover:text-mauve focus:text-mauve md:ml-4"
+          href="{{relative-path | safe}}tags/index.html"
+          >Tags</a
+        >
 
-          {% if discuss-link %}
-          <a
-            class="hover:text-neutral-700 focus:text-neutral-700 md:ml-4"
-            href="{{discuss-link}}"
-            >Discuss</a
-          >
-          {% endif %}
+        {% if discuss-link %}
+        <a
+          class="hover:text-mauve focus:text-mauve md:ml-4"
+          href="{{discuss-link}}"
+          >Discuss</a
+        >
+        {% endif %}
 
-          <a
-            class="hover:text-neutral-700 focus:text-neutral-700 md:ml-4"
-            href="{{relative-path | safe}}atom.xml"
-          >
-            Feed
-          </a>
+        <a
+          class="hover:text-mauve focus:text-mauve md:ml-4"
+          href="{{relative-path | safe}}atom.xml"
+        >
+          Feed
+        </a>
 
-          {% if twitter-handle %}
-          <a
-            class="hover:text-neutral-700 focus:text-neutral-700 md:ml-4"
-            href="https://twitter.com/{{twitter-handle}}"
-          >
-            Twitter
-          </a>
-          {% endif %} {% if about-link %}
-          <a
-            hx-boost="true"
-            class="hover:text-neutral-700 focus:text-neutral-700 md:ml-4"
-            href="{{relative-path | safe}}about{{page-suffix}}"
-            >About</a
-          >
-          {% endif %}
-        </div>
+        {% if twitter-handle %}
+        <a
+          class="hover:text-mauve focus:text-mauve md:ml-4"
+          href="https://twitter.com/{{twitter-handle}}"
+        >
+          Twitter
+        </a>
+        {% endif %} {% if about-link %}
+        <a
+          hx-boost="true"
+          class="hover:text-mauve focus:text-mauve md:ml-4"
+          href="{{relative-path | safe}}about{{page-suffix}}"
+          >About</a
+        >
+        {% endif %}
       </nav>
       <header class="prose mt-4 min-h-12 w-full">
-        <h1 class="" hx-boost="true">
+        <h1
+          class=""
+          hx-boost="true"
+        >
           <a
             class=""
             href="{{relative-path | safe}}index.html"
@@ -163,12 +164,16 @@
 
     <hr class="my-10 h-0.5 border-t-0 bg-transparent bg-gradient-to-r from-transparent via-overlay2 to-transparent" />
 
-    <main hx-boost="true" class="v-full flex h-full flex-col justify-start px-1">{{body | safe}}</main>
+    <main
+      hx-boost="true"
+      class="v-full flex h-full flex-col justify-start px-1"
+      >{{body | safe}}</main
+    >
 
     <footer class="flex min-h-12 w-full flex-row flex-wrap items-center justify-end px-8 text-sky md:flex-nowrap">
       {% if not skip-archive %}
       <a
-        class="mr-4 text-sky hover:text-mauve focus:text-mauve md:mr-0 [&>svg]:h-5 [&>svg]:w-5"
+        class="mr-4 text-sky hover:text-mauve focus:text-mauve [&>svg]:h-5 [&>svg]:w-5"
         href="{{relative-path | safe}}archive{{page-suffix}}"
       >
         <svg
@@ -188,7 +193,7 @@
         </svg>
       </a>
       {% endif %}
-      <div class="mr-4 hover:text-mauve focus:text-mauve md:mr-0 [&>svg]:h-5 [&>svg]:w-5">
+      <div class="mr-4 hover:text-mauve focus:text-mauve [&>svg]:h-5 [&>svg]:w-5">
         <svg
           stroke="currentColor"
           fill="none"
@@ -206,7 +211,7 @@
         </svg>
       </div>
 
-      <div class="mr-4 hover:text-mauve focus:text-mauve md:mr-0 [&>svg]:h-5 [&>svg]:w-5">
+      <div class="mr-4 hover:text-mauve focus:text-mauve [&>svg]:h-5 [&>svg]:w-5">
         <svg
           stroke="currentColor"
           fill="none"
@@ -233,7 +238,7 @@
         </svg>
       </div>
 
-      <div class="my-4 mr-4 text-xs text-sapphire hover:text-mauve focus:text-mauve md:mr-0 md:grow"> This website is open source >==> </div>
+      <div class="my-4 mr-4 text-xs text-sapphire hover:text-mauve focus:text-mauve md:grow"> This website is open source >==> </div>
     </footer>
   </body>
 </html>
