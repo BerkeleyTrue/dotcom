@@ -47,6 +47,9 @@
        :depends [clean render css]
        :task (run '-dev {:parallel true})}
 
+  build {:doc "Build blog"
+         :depends [clean render css]}
+
   quickblog {:doc "Start blogging quickly! Run `bb quickblog help` for details."
              :requires ([quickblog.cli :as qcli])
              :task (qcli/dispatch opts)}}}
