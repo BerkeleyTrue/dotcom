@@ -1,5 +1,5 @@
 {:pods {clj-kondo/clj-kondo {:version "2024.03.05"}}
- :deps {io.github.borkdude/quickblog {:git/sha "aab20855db9a5281728b71147a083bcdd261799a"}
+ :deps {io.github.borkdude/quickblog {:local/root "../quickblog"}
         org.babashka/cli {:mvn/version "0.3.31"}}
  :paths ["."]
  :tasks
