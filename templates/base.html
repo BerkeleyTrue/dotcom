@@ -10,28 +10,17 @@
     <link
       type="application/atom+xml"
       rel="alternate"
-      href="{{relative-path | safe}}atom.xml"
+      href="/atom.xml"
       title="{{title}}"
     />
     <link
       rel="stylesheet"
-      href="{{relative-path | safe}}style.css"
+      href="/style.css"
     />
-    <script
-      src="https://cdnjs.cloudflare.com/ajax/libs/prism/9000.0.1/prism.min.js"
-      crossorigin="anonymous"
-      referrerpolicy="no-referrer"
-    ></script>
     <link
+      href="/assets/catppuccin-prism.css"
       rel="stylesheet"
-      href="https://unpkg.com/dracula-prism/dist/css/dracula-prism.min.css"
     />
-    <script
-      src="https://unpkg.com/htmx.org@1.9.10"
-      integrity="sha384-D1Kt99CQMDuVetoL1lrYwg5t+9QdHe7NLX/SoJYkXDFfX37iInKRy5xLSi8nO7UC"
-      crossorigin="anonymous"
-    ></script>
-
     {{watch | safe }}
     <link
       rel="shortcut icon"
@@ -238,5 +227,12 @@
 
       <div class="my-4 mr-4 text-xs text-sapphire hover:text-mauve focus:text-mauve md:grow"> This website is open source >==> </div>
     </footer>
+
+    <script src="/assets/prism.js"></script>
+
+    <script
+      src="/assets/htmx.js"
+    ></script>
+
   </body>
 </html>
