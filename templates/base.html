@@ -111,6 +111,7 @@
         <div class="flex w-full flex-wrap items-center justify-between px-3 md:justify-end">
           <!-- <a class="page-link" href="{{relative-path | safe}}archive{{page-suffix}}">Archive</a> -->
           <a
+            hx-boost="true"
             class="hover:text-neutral-700 focus:text-neutral-700 md:ml-4"
             href="{{relative-path | safe}}tags/index.html"
             >Tags</a
@@ -140,6 +141,7 @@
           </a>
           {% endif %} {% if about-link %}
           <a
+            hx-boost="true"
             class="hover:text-neutral-700 focus:text-neutral-700 md:ml-4"
             href="{{relative-path | safe}}about{{page-suffix}}"
             >About</a
@@ -148,7 +150,7 @@
         </div>
       </nav>
       <header class="prose mt-4 min-h-12 w-full">
-        <h1 class="">
+        <h1 class="" hx-boost="true">
           <a
             class=""
             href="{{relative-path | safe}}index.html"
@@ -161,7 +163,7 @@
 
     <hr class="my-10 h-0.5 border-t-0 bg-transparent bg-gradient-to-r from-transparent via-overlay2 to-transparent" />
 
-    <main class="v-full flex h-full flex-col justify-start px-1">{{body | safe}}</main>
+    <main hx-boost="true" class="v-full flex h-full flex-col justify-start px-1">{{body | safe}}</main>
 
     <footer class="flex min-h-12 w-full flex-row flex-wrap items-center justify-end px-8 text-sky md:flex-nowrap">
       {% if not skip-archive %}
