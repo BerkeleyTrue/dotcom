@@ -1,0 +1,17 @@
+<section class="container prose mx-auto">
+  <h2>{{title}}</h2>
+  <ul class="">
+    {% for tag in tags %}
+    <li
+      ><span
+        ><a
+          href="{{tag.url}}"
+          class="capitalize"
+          >{{tag.tag}}</a
+        >
+        - {{tag.count}} post{{tag.count|pluralize}}</span
+      ></li
+    >
+    {% endfor %}
+  </ul>
+</section>

@@ -1,0 +1,242 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <title>{{title}}</title>
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0"
+    />
+    <link
+      type="application/atom+xml"
+      rel="alternate"
+      href="{{relative-path | safe}}atom.xml"
+      title="{{title}}"
+    />
+    <link
+      rel="stylesheet"
+      href="{{relative-path | safe}}style.css"
+    />
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/prism/9000.0.1/prism.min.js"
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    ></script>
+    <link
+      rel="stylesheet"
+      href="https://unpkg.com/dracula-prism/dist/css/dracula-prism.min.css"
+    />
+    <script
+      src="https://unpkg.com/htmx.org@1.9.10"
+      integrity="sha384-D1Kt99CQMDuVetoL1lrYwg5t+9QdHe7NLX/SoJYkXDFfX37iInKRy5xLSi8nO7UC"
+      crossorigin="anonymous"
+    ></script>
+
+    {{watch | safe }}
+    <link
+      rel="shortcut icon"
+      href="/assets/images/favicon.ico"
+    />
+
+    <!-- Social sharing (Facebook, Twitter, LinkedIn, etc.) -->
+    <meta
+      name="title"
+      content="{{title}}"
+    />
+    <meta
+      name="twitter:title"
+      content="{{title}}"
+    />
+    <meta
+      property="og:title"
+      content="{{title}}"
+    />
+    <meta
+      property="og:type"
+      content="website"
+    />
+    {% if sharing.description %}
+    <meta
+      name="description"
+      content="{{sharing.description}}"
+    />
+    <meta
+      name="twitter:description"
+      content="{{sharing.description}}"
+    />
+    <meta
+      property="og:description"
+      content="{{sharing.description}}"
+    />
+    {% endif %} {% if sharing.image %}
+    <meta
+      name="twitter:image"
+      content="{{sharing.image}}"
+    />
+    <meta
+      name="twitter:card"
+      content="summary_large_image"
+    />
+    <meta
+      property="og:image"
+      content="{{sharing.image}}"
+    />
+    <meta
+      property="og:image:alt"
+      content="{{sharing.image-alt}}"
+    />
+    {% else %}
+    <meta
+      name="twitter:card"
+      content="summary"
+    />
+    {% endif %} {% if sharing.author %}
+    <meta
+      name="twitter:creator"
+      content="{{sharing.author}}"
+    />
+    {% endif %} {% if sharing.twitter-handle %}
+    <meta
+      name="twitter:site"
+      content="{{sharing.twitter-handle}}"
+    />
+    {% endif %}
+  </head>
+
+  <body class="flex-no-wrap mx-auto min-h-screen w-screen max-w-screen-lg flex-col items-center bg-base text-text">
+    <div class="min-h-14 max-w-5xl overflow-hidden">
+      <nav class="shadow-dark-mild relative flex w-full flex-nowrap items-center justify-between bg-overlay0/50 px-2 py-2 text-sapphire md:justify-end lg:rounded lg:px-4">
+        <!-- <a class="page-link" href="{{relative-path | safe}}archive{{page-suffix}}">Archive</a> -->
+        <a
+          hx-boost="true"
+          class="hover:text-mauve focus:text-mauve md:ml-4"
+          href="{{relative-path | safe}}tags/index.html"
+          >Tags</a
+        >
+
+        {% if discuss-link %}
+        <a
+          class="hover:text-mauve focus:text-mauve md:ml-4"
+          href="{{discuss-link}}"
+          >Discuss</a
+        >
+        {% endif %}
+
+        <a
+          class="hover:text-mauve focus:text-mauve md:ml-4"
+          href="{{relative-path | safe}}atom.xml"
+        >
+          Feed
+        </a>
+
+        {% if twitter-handle %}
+        <a
+          class="hover:text-mauve focus:text-mauve md:ml-4"
+          href="https://twitter.com/{{twitter-handle}}"
+        >
+          Twitter
+        </a>
+        {% endif %} {% if about-link %}
+        <a
+          hx-boost="true"
+          class="hover:text-mauve focus:text-mauve md:ml-4"
+          href="{{relative-path | safe}}about{{page-suffix}}"
+          >About</a
+        >
+        {% endif %}
+      </nav>
+      <header class="prose mt-4 min-h-12 w-full">
+        <h1
+          class=""
+          hx-boost="true"
+        >
+          <a
+            class=""
+            href="{{relative-path | safe}}index.html"
+            ><span class="text-blue">(</span><span class="text-red">Berkeley</span> <span class="text-sky">true</span><span class="text-blue">)</span></a
+          >
+        </h1>
+        <p class="text-sm">{{blog-description}}</p>
+      </header>
+    </div>
+
+    <hr class="my-10 h-0.5 border-t-0 bg-transparent bg-gradient-to-r from-transparent via-overlay2 to-transparent" />
+
+    <main
+      hx-boost="true"
+      class="v-full flex h-full flex-col justify-start px-1"
+      >{{body | safe}}</main
+    >
+
+    <footer class="flex min-h-12 w-full flex-row flex-wrap items-center justify-end px-8 text-sky md:flex-nowrap">
+      {% if not skip-archive %}
+      <a
+        class="mr-4 text-sky hover:text-mauve focus:text-mauve [&>svg]:h-5 [&>svg]:w-5"
+        href="{{relative-path | safe}}archive{{page-suffix}}"
+      >
+        <svg
+          fill="currentColor"
+          xmlns="http://www.w3.org/2000/svg"
+          stroke-width="2"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          height="1em"
+          width="1em"
+          viewBox="0 0 384 512"
+        >
+          <!--!Font Awesome Free 6.5.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2024 Fonticons, Inc.-->
+          <path
+            d="M64 464c-8.8 0-16-7.2-16-16V64c0-8.8 7.2-16 16-16h48c0 8.8 7.2 16 16 16h32c8.8 0 16-7.2 16-16h48v80c0 17.7 14.3 32 32 32h80V448c0 8.8-7.2 16-16 16H64zM64 0C28.7 0 0 28.7 0 64V448c0 35.3 28.7 64 64 64H320c35.3 0 64-28.7 64-64V154.5c0-17-6.7-33.3-18.7-45.3L274.7 18.7C262.7 6.7 246.5 0 229.5 0H64zm48 112c0 8.8 7.2 16 16 16h32c8.8 0 16-7.2 16-16s-7.2-16-16-16H128c-8.8 0-16 7.2-16 16zm0 64c0 8.8 7.2 16 16 16h32c8.8 0 16-7.2 16-16s-7.2-16-16-16H128c-8.8 0-16 7.2-16 16zm-6.3 71.8L82.1 335.9c-1.4 5.4-2.1 10.9-2.1 16.4c0 35.2 28.8 63.7 64 63.7s64-28.5 64-63.7c0-5.5-.7-11.1-2.1-16.4l-23.5-88.2c-3.7-14-16.4-23.8-30.9-23.8H136.6c-14.5 0-27.2 9.7-30.9 23.8zM128 336h32c8.8 0 16 7.2 16 16s-7.2 16-16 16H128c-8.8 0-16-7.2-16-16s7.2-16 16-16z"
+          />
+        </svg>
+      </a>
+      {% endif %}
+      <div class="mr-4 hover:text-mauve focus:text-mauve [&>svg]:h-5 [&>svg]:w-5">
+        <svg
+          stroke="currentColor"
+          fill="none"
+          stroke-width="2"
+          viewBox="0 0 24 24"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          height="1em"
+          width="1em"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"
+          ></path>
+        </svg>
+      </div>
+
+      <div class="mr-4 hover:text-mauve focus:text-mauve [&>svg]:h-5 [&>svg]:w-5">
+        <svg
+          stroke="currentColor"
+          fill="none"
+          stroke-width="2"
+          viewBox="0 0 24 24"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          height="1em"
+          width="1em"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path>
+          <rect
+            x="2"
+            y="9"
+            width="4"
+            height="12"
+          ></rect>
+          <circle
+            cx="4"
+            cy="4"
+            r="2"
+          ></circle>
+        </svg>
+      </div>
+
+      <div class="my-4 mr-4 text-xs text-sapphire hover:text-mauve focus:text-mauve md:grow"> This website is open source >==> </div>
+    </footer>
+  </body>
+</html>

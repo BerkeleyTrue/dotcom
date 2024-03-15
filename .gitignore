@@ -51,8 +51,6 @@ typings/
 # Output of 'npm pack'
 *.tgz
 
-# dotenv environment variable files
-.env*
 
 # gatsby files
 .cache/
@@ -73,3 +71,8 @@ next-env.d.ts
 .husky
 _site
 out
+# clojure
+.clj-kondo
+.direnv
+.work
+.nrepl-port
