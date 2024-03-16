@@ -161,6 +161,7 @@
       {% if not skip-archive %}
       <a
         class="mr-4 text-sky hover:text-mauve focus:text-mauve [&>svg]:h-5 [&>svg]:w-5"
+        hx-boost="true"
         href="{{relative-path | safe}}archive{{page-suffix}}"
       >
         <svg
