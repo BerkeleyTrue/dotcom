@@ -3,48 +3,48 @@ http://prismjs.com/download.html#themes=prism&languages=markup+css+clike+javascr
 
 :root
 {
-  --background: #282A36;
-  --comment:    #6272A4;
-  --foreground: #F8F8F2;
-  --selection:  #44475A;
+  --background: #292c3c;
+  --comment:    #8caaee;
+  --foreground: #c6d0f5;
+  --selection:  #838ba7;
 
-  --cyan:       #8BE9FD;
-  --green:      #50FA7B;
-  --orange:     #FFB86C;
-  --pink:       #FF79C6;
-  --purple:     #BD93F9;
-  --red:        #FF5555;
-  --yellow:     #F1FA8C;
+  --cyan:       #85c1dc;
+  --green:      #a6d189;
+  --orange:     #ef9f76;
+  --pink:       #f4b8e4;
+  --purple:     #ca9ee6;
+  --red:        #e78284;
+  --yellow:     #e5c890;
 
   /* Transparency */
 
   /** 30% of transparency **/
-  --background-30: #282A3633;
-  --comment-30:    #6272A433;
-  --foreground-30: #F8F8F233;
-  --selection-30:  #44475A33;
+  --background-30: #292c3c33;
+  --comment-30:    #8caaee33;
+  --foreground-30: #c6d0f533;
+  --selection-30:  #838ba733;
 
-  --cyan-30:       #8BE9FD33;
-  --green-30:      #50FA7B33;
-  --orange-30:     #FFB86C33;
-  --pink-30:       #FF79C633;
-  --purple-30:     #BD93F933;
-  --red-30:        #FF555533;
-  --yellow-30:     #F1FA8C33;
+  --cyan-30:       #85c1dc33;
+  --green-30:      #a6d18933;
+  --orange-30:     #ef9f7633;
+  --pink-30:       #f4b8e433;
+  --purple-30:     #ca9ee633;
+  --red-30:        #e7828433;
+  --yellow-30:     #e5c89033;
 
   /** 40% of transparency **/
-  --background-40: #282A3666;
-  --comment-40:    #6272A466;
-  --foreground-40: #F8F8F266;
-  --selection-40:  #44475A66;
+  --background-40: #292c3c66;
+  --comment-40:    #8caaee66;
+  --foreground-40: #c6d0f566;
+  --selection-40:  #838ba766;
 
-  --cyan-40:       #8BE9FD66;
-  --green-40:      #50FA7B66;
-  --orange-40:     #FFB86C66;
-  --pink-40:       #FF79C666;
-  --purple-40:     #BD93F966;
-  --red-40:        #FF555566;
-  --yellow-40:     #F1FA8C66;
+  --cyan-40:       #85c1dc66;
+  --green-40:      #a6d18966;
+  --orange-40:     #ef9f7666;
+  --pink-40:       #f4b8e466;
+  --purple-40:     #ca9ee666;
+  --red-40:        #e7828466;
+  --yellow-40:     #e5c89066;
 }
 
 pre::-webkit-scrollbar
