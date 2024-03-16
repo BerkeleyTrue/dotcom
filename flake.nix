@@ -44,6 +44,7 @@
             tailwindcss
             tailwindcss-language-server
             nodePackages.prettier
+            netlify-cli
           ];
         };
       };
