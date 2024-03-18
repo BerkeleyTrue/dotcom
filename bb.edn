@@ -1,6 +1,6 @@
 {:pods {clj-kondo/clj-kondo {:version "2024.03.05"}
         org.babashka/fswatcher {:version "0.0.5"}}
- :deps {io.github.borkdude/quickblog {:local/root "../quickblog"}
+ :deps {io.github.borkdude/quickblog {:git/sha "caffe692c8d715b30c8851ab8210dbabb19a1785"}
         org.babashka/cli {:mvn/version "0.3.31"}
         lread/status-line {:git/url "https://github.com/lread/status-line.git"
                            :sha "cf44c15f30ea3867227fa61ceb823e5e942c707f"}}
