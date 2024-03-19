@@ -14,11 +14,10 @@
     (spit out-file content)))
 
 (defn watch-resume [opts]
-  (spit-resume opts)
-  (watch "templates/resume.html"
+  (println "starting watch-resume...")
+  (watch "templates"
          (fn [{:keys [path type]}]
-           (println "resume change detected; re-rendering"
-                    (name type) (str path))
-           (spit-resume opts)))
-  @(promise)
-  nil)
+           (when (= path "templates/resume.html")
+             (println (format "change detected; re-rendering: path: %s type: %s" (str path) (name type)))
+             (spit-resume opts))))
+  @(promise))

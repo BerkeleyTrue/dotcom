@@ -57,7 +57,7 @@
   -dev {:depends [dev:templates dev:css dev:resume]}
 
   dev {:doc "Start development server with file watching and live reload."
-       :depends [clean render css]
+       :depends [clean render render-resume css]
        :task (run '-dev {:parallel true})}
 
   build {:doc "Build blog"
